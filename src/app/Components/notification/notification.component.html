@@ -1,0 +1,23 @@
+<div class="row justify-content-center" style="margin-top: 70px ">
+  <div class="col-lg-10">
+    <div class="d-flex "
+      style="background-color: white; margin-top: 20px; font-size: 18px; border-top: 3px solid #de5555 ">
+      <div style="margin-right:20px" class="">
+        <span (click)="ChangeTab(1)" style="cursor: pointer ">Feed</span>
+      </div>
+      <div style=" margin-right: 20px " class="">
+        <span (click)="ChangeTab(2)" style="cursor: pointer ">Invitation</span>
+      </div>
+
+    </div>
+    <div style="text-align:left; margin-top: 50px; margin-bottom: 30px" *ngIf="CurrentTab==1">
+
+      <feeds></feeds>
+
+    </div>
+
+    <div style=" text-align: left; margin-top:50px; margin-bottom: 30px" *ngIf="CurrentTab==2">
+      <invitation></invitation>
+    </div>
+  </div>
+</div>

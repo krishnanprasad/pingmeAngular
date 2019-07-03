@@ -1,0 +1,58 @@
+
+<!-- <div style="margin-top: 70px"> -->
+  <div class="row justify-content-center" style="margin-top: 70px">
+
+    <div class="col-lg-10">
+
+      <!-- <div class="col-lg-10">
+        {this.SearchCard()}
+      </div> -->
+
+      <div class="col-md-12">
+        <h5>Subscription</h5>
+       
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let Subscriptions of UserService.Subscription">
+
+          <service-card [ServiceData]="Subscriptions"></service-card>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-12">
+        <h5>Gift Cards</h5>
+       
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let GiftCards of UserService.GiftCard">
+
+          <service-card [ServiceData]="GiftCards"></service-card>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h6>Warantee/Gaurantee</h6>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let WG of UserService.WG">
+
+          <service-card [ServiceData]="WG"></service-card>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-12">
+        <h5>Self</h5>
+      
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let Selfs of UserService.Self">
+          <service-card [ServiceData]="Selfs"></service-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
