@@ -1,0 +1,124 @@
+{
+    "chitid": "001",
+    "chittenure": 1,
+    "chitdetails": {
+        "BidList": [
+            {
+                "userid": "001",
+                "username": "Sarvesh",
+                "cap": 15000,
+                "loanamount": 12000,
+                "bidstatus": true,
+                "status": "Won"
+            },
+            {
+                "userid": "001",
+                "username": "Nivedhitha",
+                "cap": 15000,
+                "loanamount": 9000,
+                "bidstatus": false,
+                "status": "Lost"
+            }
+        ],
+        "LastTransactionList": [
+            {
+                "userid": "001",
+                "username": "Paramesh",
+                "transactionid": "AA010101",
+                "amount": 2006,
+                "interest": "816",
+                "fine": "120",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "001",
+                "username": "Gokul",
+                "transactionid": "AA010101",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid"
+            },
+            {
+                "userid": "001",
+                "username": "Saranya",
+                "transactionid": "AA0310664",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "AA0101033",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "AA0101033",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "AA0101033",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "AA0101033",
+                "amount": 1200,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": ""
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "AA0101033",
+                "amount": 1520,
+                "interest": "320",
+                "fine": "0",
+                "paidstatus": true,
+                "status": "paid",
+                "paiddate": "11-Jun-19"
+            },
+            {
+                "userid": "002",
+                "username": "Vignesh",
+                "transactionid": "0",
+                "amount": 0,
+                "interest": "0",
+                "fine": "0",
+                "paidstatus": false,
+                "status": "not paid",
+                "paiddate": ""
+            }
+        ]
+    }
+}

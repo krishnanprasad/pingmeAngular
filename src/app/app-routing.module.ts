@@ -7,6 +7,8 @@ import { TransactionComponent } from './Components/transaction/transaction.compo
 import { NotificationComponent } from './Components/notification/notification.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AddPingComponent } from './Components/add-ping/add-ping.component';
+import { ServiceDescriptionComponent } from './Components/service-description/service-description.component';
+import { OTPVerifyComponent } from './Components/otpverify/otpverify.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
   {
     path: 'Login',
     component: LoginPageComponent
+  },
+  {
+    path: 'VerifyOTP/:OTP/PhoneNumber/:PhoneNumber',
+    component: OTPVerifyComponent
   },
   {
     path: 'AddPing',
@@ -38,8 +44,13 @@ const routes: Routes = [
         path: 'Notification',
         component: NotificationComponent,
       },
+      {
+        path: 'ServiceDetails/:chitid',
+        component: ServiceDescriptionComponent
+      }  
     ]
-  }
+  },
+  
 ];
 
 @NgModule({

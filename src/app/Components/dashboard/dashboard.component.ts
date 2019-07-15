@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from 'src/app/Services/login.service';
+import { DashboardService } from 'src/app/Services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +8,32 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  private Userid:string;
+  Iserror: boolean = false;
+  errorMessage: string = "Wrong Credentials..";
 
-  constructor() { }
+  ChitDetailsList:any;
+  constructor(private _dashboard: DashboardService,) { }
 
   ngOnInit() {
+    this.Userid=localStorage.getItem("userid");
+
+    this._dashboard.getChitDetails(this.Userid).subscribe(chitdata => {
+      if (chitdata != "No User") {
+        console.log(chitdata);
+        this.ChitDetailsList=chitdata;
+        //localStorage.setItem('userid', data[0].userid);
+        //this.userData = data;       
+        this.Iserror = false;
+      }
+      else {
+
+        this.Iserror = true;
+        this.errorMessage = "Welcome New User";
+        console.log('Password' + this.errorMessage);
+      }
+    }
+    )
   }
   UserService = {
     Subscription:

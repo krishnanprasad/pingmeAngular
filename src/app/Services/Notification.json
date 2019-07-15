@@ -1,0 +1,58 @@
+{
+    "NotificationList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "userid": 15000,
+            "username": 1350,
+            "notificationtype": "BidDate",
+            "date": "09/11/2019"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "userid": "user001",
+            "username": "ramkumar",
+            "notificationtype": "PaidStatus",
+            "date": "09/11/2019"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "userid": "user001",
+            "username": "raghu",
+            "notificationtype": "LoanTransferred",
+            "date": "09/11/2019"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "userid": "user001",
+            "username": "suresh",
+            "notificationtype": "LoanTransferred",
+            "date": "09/11/2019"
+        }
+    ],
+    "ChitInvitationList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "10",
+            "interest": "16%",
+            "mutualconnection": 10,
+            "startdate": "10/11/2019"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "10",
+            "interest": "16%",
+            "mutualconnection": 10,
+            "startdate": "10/11/2019"
+        }
+    ]
+}

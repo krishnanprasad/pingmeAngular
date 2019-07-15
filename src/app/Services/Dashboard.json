@@ -1,0 +1,77 @@
+{
+    "Details": {
+        "totalchits": 2,
+        "savings": "36,000",
+        "loanavailable": "42,000",
+        "earned": "+4,200"
+    },
+    "ChitList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": "1,50,000",
+            "emi": "1,350",
+            "term": "06/10",
+            "paydate": "09/11/2019",
+            "savings":"36,000",
+            "earned": "860",
+            "loanamount":0,
+            "loanavailable":"27,000",
+            "loandate": "10/11/2019"
+        },
+        {
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "value": "1,60,000",
+            "emi": "1,750",
+            "savings":"95,000",
+            "term": "07/10",
+            "paydate": "11/11/2019",
+            "earned": "-721",
+            "loanamount":"40,000",
+            "loanavailable":"15,000",
+            "loandate": "15/11/2019"
+        }
+    ],
+    "TransactionList": [
+        {
+            "transactionid": "ACAC001123",
+            "transactiondate": "15/11/2019",
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "term": "01/10",
+            "amount": 12600,
+            "status": true
+        },
+        {
+            "transactionid": "ACAC001124",
+            "transactiondate": "15/12/2019",
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "term": "03/10",
+            "amount": 12600,
+            "status": true
+        },
+        {
+            "transactionid": "ACAC001125",
+            "transactiondate": "06/01/2020",
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "term": "04/10",
+            "amount": 12600,
+            "status": true
+        }
+    ],
+    "LoanList": [
+        {
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "term": "04/10",
+            "cap": 10000,
+            "loanamount": 8600,
+            "totalapplicants": 3,
+            "loanlastdate": "06/01/2020",
+            "status": "Yet to Approve"
+        }
+    ]
+}

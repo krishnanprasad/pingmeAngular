@@ -1,0 +1,49 @@
+{
+    "PersonalDetail": {
+        "userimg": "../../../../src/assets/userimage.png",
+        "userid": "@krishnanra",
+        "username": "Krishnan RA",
+        "useremail": "krishnan@chittie.com",
+        "userphone": "+91 9790794622",
+        "useraddress": "G 401,Shiram Sankari Apartment, Manish Nagar, Coimbatore 641027",
+        "usercountry": "India",
+        "userdob": "03/06/1992"
+    },
+    "ConnectionList": [
+        {
+            "userimg": "Sathish Kumar",
+            "userid": "@sathishkum",
+            "username": "Krishnan RA",
+            "chittierating": "66.67",
+            "userphone": "+91-9795362012"
+        },
+        {
+            "userimg": "Sathish Kumar",
+            "userid": "@sathishkum",
+            "username": "Krishnan RA",
+            "chittierating": "66.67",
+            "userphone": "+91-9795362012"
+        },
+        {
+            "userimg": "Sathish Kumar",
+            "userid": "@sathishkum",
+            "username": "Krishnan RA",
+            "chittierating": "66.67",
+            "userphone": "+91-9795362012"
+        },
+        {
+            "userimg": "Sathish Kumar",
+            "userid": "@sathishkum",
+            "username": "Krishnan RA",
+            "chittierating": "66.67",
+            "userphone": "+91-9795362012"
+        },
+        {
+            "userimg": "Sathish Kumar",
+            "userid": "@sathishkum",
+            "username": "Krishnan RA",
+            "chittierating": "66.67",
+            "userphone": "+91-9795362012"
+        }
+    ]
+}

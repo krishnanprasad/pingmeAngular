@@ -1,0 +1,78 @@
+{
+    "TransactionList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "transactionid": "AA010101",
+            "amount": 1350,
+            "term": "06/10",
+            "paiddate": "09/11/2019",
+            "status": "success"
+        },
+        {
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "transactionid": "AA010101",
+            "amount": 1350,
+            "term": "06/10",
+            "paiddate": "09/11/2019",
+            "status": "success"
+        }
+    ],
+    "LoanList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "transactionid": "AA010101",
+            "amount": 15000,
+            "term": "10",
+            "claimers": "02/10",
+            "status": "Transferred"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "transactionid": "AA010101",
+            "amount": 15000,
+            "term": "10",
+            "claimers": "02/10",
+            "status": "Lost"
+        }
+    ],
+    "ClosureList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "transactionid": "AA010101",
+            "amount": 15000,
+            "earned": 5650,
+            "status": "Transferred"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "transactionid": "AA010101",
+            "amount": 15000,
+            "earned": 5650,
+            "status": "Transferred"
+        }
+    ],
+    "DueList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014 Dev",
+            "emi": 1350,
+            "term": "3/10",
+            "interest": "18%",
+            "lastdate": "09/11/2019"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "emi": 1350,
+            "term": "7/10",
+            "interest": "18%",
+            "lastdate": "09/11/2019"
+        }
+    ]
+}

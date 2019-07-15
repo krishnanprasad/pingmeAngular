@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>CAP</th>
+      <th>Loan Amount</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let biddata of bidlist">
+      <td><img src="../../assets/Image/Business/netflix.png"
+          style="width:32px; height:32px; border-radius:50%" /><span
+          style=" padding-left:10px">{{biddata.userid}}</span></td>
+      <td>{{biddata.cap}}</td>
+      <td>{{biddata.amount}}</td>
+      
+      <td>{{biddata.status}}</td>
+      <td>
+        <button type=" button" class="btn">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

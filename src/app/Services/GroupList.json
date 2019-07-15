@@ -1,0 +1,87 @@
+{
+    "OnGoingList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "06/10",
+            "paydate": "09/11/2019",
+            "loandate": "10/11/2019"
+        },
+        {
+            "chitid": "002",
+            "chitname": "TVS NEXT",
+            "value": 16000,
+            "emi": 1750,
+            "term": "03/10",
+            "paydate": "11/11/2019",
+            "loandate": "15/11/2019"
+        }
+    ],
+    "AcceptedList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "10",
+            "interest": "12%",
+            "startdate": "09/11/2019",
+            "accepted": "06/10"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "10",
+            "interest": "12%",
+            "startdate": "09/11/2019",
+            "accepted": "06/10"
+        }
+    ],
+    "CompletedList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 20000,
+            "earned": 3750,
+            "completeddate": "09/11/2019",
+            "claimers":"10/10",
+            "completedstatus":"Transferred"
+        },
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "earned": 860,
+            "completeddate": "09/11/2019",
+            "claimers":"07/10",
+            "completedstatus":"Transferred"
+        }
+    ],
+    "RequestList": [
+        {
+            "chitid": "001",
+            "chitname": "MCT 2014",
+            "value": 15000,
+            "emi": 1350,
+            "term": "10",
+            "accepted": "7/10",
+            "interest": "18%",
+            "startdate": "09/11/2019"
+            
+        },
+        {
+            "chitid": "002",
+            "chitname": "TVS Dev",
+            "value": 20000,
+            "emi": 2000,
+            "term": "10",
+            "accepted": "7/10",
+            "interest": "13%",
+            "startdate": "01/12/2019"
+        }
+    ]
+}

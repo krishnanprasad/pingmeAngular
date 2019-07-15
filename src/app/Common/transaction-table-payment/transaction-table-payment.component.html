@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Through</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transactiondetail of transactiondetails">
+      <td><img src="../../assets/Image/Business/{{transactiondetail.logo}}"
+          style="width:32px; height:32px; border-radius:50%" /><span
+          style=" padding-left:10px">{{transactiondetail.username}}</span></td>
+      <td>{{transactiondetail.amount}}</td>
+      <td>{{transactiondetail.createddate}}</td>
+      <td>{{transactiondetail.paymentmodename}}</td>
+      <td>{{transactiondetail.paymentstatusname}}</td>
+      <td>
+        <button type=" button" class="btn">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

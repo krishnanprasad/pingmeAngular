@@ -1,0 +1,58 @@
+<div>
+  <div class="d-flex card ACard flex-column" style="background-color:white;opacity:0.94">
+    <div class="p-2">
+
+      <div class="row" style="padding:15px">
+        <img src="../../assets/Image/Business/{{ServiceData.logo}}" style="width:32px;height:32px;border-radius:50%;margin-right: 10px" />
+        <div class="p-15 Varela FirstBlack" style="font-size:20px">{{ServiceData.chitname}}</div>
+      </div>
+
+
+      <div class="d-flex" style="margin-top: 7px">
+        <div class="p-15 flex-fill">
+          <div class="p-15 Varela SecondBlack">
+            <img src="../../../assets/Image/Icons/clock.png" style="height:18px;width:18px;margin-right: 10px" />
+            <span style="font-size: 14px">{{ServiceData.emi}}</span></div>
+          <div class="p-15 Varela SecondBlack">
+            <img src="../../../assets/Image/Icons/wallet.png" style="height:18px;width:18px;margin-right: 10px" />
+            <span style="font-size: 14px">{{ServiceData.amount}}</span>
+          </div>
+          <div class="p-15 Varela SecondBlack">
+            <img src="../../../assets/Image/Icons/wallet.png" style="height:18px;width:18px;margin-right: 10px" />
+            <span style="font-size: 14px">{{ServiceData.tenure}}</span>
+          </div>
+        </div>
+        
+        <div class="flex-fill" style="text-align: center;margin: auto;">
+          <span style="font-size: 28px" class="Varela FirstWhite AlarmCard GreenCard">{{ServiceData.NextChitDaysLeft}}</span>
+          <span style="display: block;font-size: 12px" class="Varela FirstWhite AlarmCard GreenCard">Days Left</span>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- <div class="col-md-12" *ngIf="ServiceData.Owner!=null">
+     
+      <servicecardimg [OwnerDetails]="ServiceData.Owner"></servicecardimg>
+    </div> -->
+
+    <div class="d-flex justify-content-end mb-2">
+
+      <!-- <div class="p-2">
+        <span class='payspan' style="color:#adadad;background-color:white">{{ServiceData.chitid}}</span>
+      </div> -->
+
+
+
+      <!-- <div class="p-2">
+        <span class='payspanCircle SecondBlack'  data-toggle="modal" data-target="#myModal" (click)="onImageUploadSuccess($event)">Pay</span>
+      </div> -->
+    </div>
+   
+
+  </div>
+
+
+
+</div>
+<!-- <modal-sidebar [uploadSuccess] = "uploadSuccess" (numberGenerated)="onNumberGenerated($event)"></modal-sidebar> -->

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
@@ -16,6 +16,12 @@ import { InvitationComponent } from './Components/Notification/invitation/invita
 import { HomeComponent } from './Components/home/home.component';
 import { AddPingComponent } from './Components/add-ping/add-ping.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceDescriptionComponent } from './Components/service-description/service-description.component';
+import { LayoutComponent } from './Components/layout- NR/layout.component';
+import { TransactionTablePaymentComponent } from './Common/transaction-table-payment/transaction-table-payment.component';
+import { BidTableComponent } from './Common/bid-table/bid-table.component';
+import { OTPVerifyComponent } from './Components/otpverify/otpverify.component';
+import { ChitCardComponent } from './Common/chit-card/chit-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +37,18 @@ import { FormsModule } from '@angular/forms';
     InvitationComponent,
     HomeComponent,
     AddPingComponent,
+    ServiceDescriptionComponent,
+    LayoutComponent,
+    TransactionTablePaymentComponent,
+    BidTableComponent,
+    OTPVerifyComponent,
+    ChitCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

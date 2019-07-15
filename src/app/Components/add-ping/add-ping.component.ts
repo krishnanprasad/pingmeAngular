@@ -12,7 +12,7 @@ export class AddPingComponent implements OnInit {
   constructor() { }
 
 
-  addping = new AddPing('GiftCard', 'Apple Watch', '', '', '', '', '');
+  addping = new AddPing('Loan', 'Apple Watch', '', '', '', '6M', '');
   ngOnInit() {
   }
 
