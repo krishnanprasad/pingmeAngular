@@ -10,6 +10,8 @@ export class BidTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("--Bid List--");
+    console.log(this.bidlist);
   }
 
 }

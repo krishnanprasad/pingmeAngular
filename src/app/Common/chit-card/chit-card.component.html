@@ -1,9 +1,9 @@
 <div>
-  <div class="d-flex card ACard flex-column" style="background-color:white;opacity:0.94">
+  <div [routerLink]="['/Home/ServiceDetails/',ServiceData.chitid]" class="d-flex card ACard flex-column" style="background-color:white;opacity:0.94">
     <div class="p-2">
 
       <div class="row" style="padding:15px">
-        <img src="../../assets/Image/Business/{{ServiceData.logo}}" style="width:32px;height:32px;border-radius:50%;margin-right: 10px" />
+        <img src="../../assets/Image/Common/user1.jpg" style="width:32px;height:32px;border-radius:50%;margin-right: 10px" />
         <div class="p-15 Varela FirstBlack" style="font-size:20px">{{ServiceData.chitname}}</div>
       </div>
 

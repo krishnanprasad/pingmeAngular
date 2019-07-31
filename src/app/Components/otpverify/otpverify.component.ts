@@ -11,6 +11,7 @@ export class OTPVerifyComponent implements OnInit {
   public PhoneNumber: string;
   private Userdata:any;
   Iserror: boolean = false;
+  Username:any;
   errorMessage: string = "Wrong Credentials..";
   constructor(private route: ActivatedRoute, private _loginservice: LoginService, private router: Router) { }
 
@@ -22,9 +23,11 @@ export class OTPVerifyComponent implements OnInit {
     this._loginservice.verifyUser(this.PhoneNumber, this.OTP).subscribe(data => {
       if (data != "No User") {
         this.Userdata=data["userid"];
+        this.Username=data["username"];
        
         
-        localStorage.setItem('userid',this.Userdata);
+        sessionStorage.setItem('userid',this.Userdata);
+        sessionStorage.setItem('username',this.Username);
         //this.userData = data;
         this.router.navigate(['/Home/Dashboard']);
         this.Iserror = false;

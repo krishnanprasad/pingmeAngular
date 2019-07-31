@@ -8,29 +8,34 @@ import { DashboardService } from 'src/app/Services/dashboard.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private Userid:string;
+  private Userid: string;
   Iserror: boolean = false;
   errorMessage: string = "Wrong Credentials..";
 
-  ChitDetailsList:any;
-  constructor(private _dashboard: DashboardService,) { }
+  ChitDetailsList: any;
+  IsChitNull: boolean = false;
+  constructor(private _dashboard: DashboardService, ) { }
 
   ngOnInit() {
-    this.Userid=localStorage.getItem("userid");
-
+    this.Userid = sessionStorage.getItem("userid");
+    debugger;
+    console.log("**--Userid--**" + this.Userid);
     this._dashboard.getChitDetails(this.Userid).subscribe(chitdata => {
-      if (chitdata != "No User") {
+   
+      if (chitdata['length'] != 0) {
+        debugger;
+        console.log("**--chitdata is Available--**");
         console.log(chitdata);
-        this.ChitDetailsList=chitdata;
+        this.ChitDetailsList = chitdata;
         //localStorage.setItem('userid', data[0].userid);
         //this.userData = data;       
         this.Iserror = false;
       }
       else {
-
-        this.Iserror = true;
+        debugger;
+        this.IsChitNull = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+        console.log('No Chit Found');
       }
     }
     )

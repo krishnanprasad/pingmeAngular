@@ -9,6 +9,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { AddPingComponent } from './Components/add-ping/add-ping.component';
 import { ServiceDescriptionComponent } from './Components/service-description/service-description.component';
 import { OTPVerifyComponent } from './Components/otpverify/otpverify.component';
+import { PaymentPageComponent } from './Components/payment-page/payment-page.component';
+import { DummyPageComponent } from './Components/dummy-page/dummy-page.component';
 
 const routes: Routes = [
   {
@@ -47,7 +49,15 @@ const routes: Routes = [
       {
         path: 'ServiceDetails/:chitid',
         component: ServiceDescriptionComponent
-      }  
+      } ,
+      {
+        path: 'Payment/:chitid/:termgroupid',
+        component: PaymentPageComponent
+      },
+      {
+        path: 'Dummy',
+        component: DummyPageComponent,
+      },  
     ]
   },
   

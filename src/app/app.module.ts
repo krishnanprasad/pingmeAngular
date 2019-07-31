@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,10 @@ import { TransactionTablePaymentComponent } from './Common/transaction-table-pay
 import { BidTableComponent } from './Common/bid-table/bid-table.component';
 import { OTPVerifyComponent } from './Components/otpverify/otpverify.component';
 import { ChitCardComponent } from './Common/chit-card/chit-card.component';
+import { PaymentPageComponent } from './Components/payment-page/payment-page.component';
+import { DummyPageComponent } from './Components/dummy-page/dummy-page.component';
+import { ModalComponent } from './Common/Modal/modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,12 +48,17 @@ import { ChitCardComponent } from './Common/chit-card/chit-card.component';
     BidTableComponent,
     OTPVerifyComponent,
     ChitCardComponent,
+    PaymentPageComponent,
+    ModalComponent,
+    DummyPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

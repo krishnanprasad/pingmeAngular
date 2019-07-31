@@ -6,7 +6,31 @@
     border-radius: 10px;
     vertical-align: middle;
 }
-
+.text-completed{
+    color: red !important;
+}
+.text-current{
+    color: green !important;
+}
+.text-future{
+    color: blue !important;
+}
+.activeTerm{
+    background-color: #E91E63 !important;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    color: white !important;
+}
+.nonactiveTerm{
+    background-color:#d6d6d6;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    color: white;
+}
 .p-2 {
     padding: 0px !important;
 }

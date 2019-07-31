@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  IsSpinner:boolean=false;
   userData = {};
   constructor(private _loginservice: LoginService,private router: Router) { }
   PhoneNumber: any;
@@ -17,12 +18,14 @@ export class LoginPageComponent implements OnInit {
 
   }
   CheckUserCredetials() {
+    this.IsSpinner=true;
     console.log('PhoneNumber' + this.PhoneNumber);
-   
+    
     this._loginservice.checkCredentials(this.PhoneNumber).subscribe(data => {
       if (data != "No User") {
         console.log(data);
         //this.userData = data;
+        this.IsSpinner=false;
         this.router.navigate(['VerifyOTP/'+data+'/PhoneNumber/'+this.PhoneNumber])
         this.Iserror = false;
       }

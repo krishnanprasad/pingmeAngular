@@ -1,13 +1,16 @@
-<p>
-  login-page works!
-</p>
-<input type="text" name="Phonenumber" [(ngModel)]="PhoneNumber" placeholder="Enter User Name" />
 
-<input type="button" (click)="CheckUserCredetials()" value="Click Me to Get User Date" />
-<p>{{userData.username}}</p>
+<div *ngIf="!IsSpinner">
+  <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber" placeholder="Enter User Name" />
+
+  <input type="button" class="btn btn-success" (click)="CheckUserCredetials()" value="Click Me to Get User Date" />
+  <p>{{userData.username}}</p>
+</div>
+<div class="overlay" *ngIf="IsSpinner">
+  <div class="loader" ></div>
+</div>
 
 
 <div *ngIf="Iserror">
-    <div id="snackbar" [ngClass]="Iserror ? 'show' : ''">{{errorMessage}}</div>
-  
+  <div id="snackbar" [ngClass]="Iserror ? 'show' : ''">{{errorMessage}}</div>
+
 </div>

@@ -1,0 +1,17 @@
+<div style="margin-top: 70px">
+
+    CHIT ID :{{chitid}}
+    Term Group ID :{{termgroupid}}
+</div>
+<form (ngSubmit)="onSubmitTransaction(transactionform)">
+    <input name="UserId" class="form-control" [(ngModel)]="transactionform.UserId"  readonly />
+    <input name="ChitId" class="form-control"[(ngModel)]="transactionform.ChitId"  readonly/>
+    <input name="TermGroupId" class="form-control"[(ngModel)]="transactionform.TermGroupId"  readonly/>
+    <select name="ModeOfPayment" class="form-control"[(ngModel)]="transactionform.ModeOfPayment">
+        <option value="1">Cash</option>
+        <option value="2">Card</option>
+        <option value="3">UPI</option>
+    </select>
+    <input type="number" class="form-control" name="Amount" [(ngModel)]="transactionform.Amount" readonly />
+    <button type="submit">Pay Amount</button>
+</form>

@@ -13,14 +13,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usage of usages">
-          <td><img src="../../assets/Image/Business/{{usage.logo}}"
+        <tr *ngFor="let usage of transactionList">
+          <td><img src="../../../assets/Image/Common/user1.jpg"
               style="width:32px; height:32px; border-radius:50%" /><span
-              style=" padding-left:10px">{{usage.servicename}}</span></td>
+              style=" padding-left:10px">You {{username}}</span></td>
           <td>{{usage.amount}}</td>
-          <td>{{usage.paiddate}}</td>
-          <td>{{usage.paidtype}}</td>
-          <td>{{usage.paidstatus}}</td>
+          <td>{{usage.createddate| date : 'mediumDate'}}</td>
+          <td>{{usage.paymentmodename}}</td>
+          <td>{{usage.paidstatusname}}</td>
           <td>
             <button type=" button" class="btn">View</button>
           </td>

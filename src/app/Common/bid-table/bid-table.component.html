@@ -3,18 +3,19 @@
     <tr>
       <th>User</th>
       <th>CAP</th>
-      <th>Loan Amount</th>
+      <th>BID</th>
+      <th>Date</th>
       <th>Status</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let biddata of bidlist">
-      <td><img src="../../assets/Image/Business/netflix.png"
+      <td><img src="../../assets/Image/Common/user1.jpg"
           style="width:32px; height:32px; border-radius:50%" /><span
-          style=" padding-left:10px">{{biddata.userid}}</span></td>
+          style=" padding-left:10px">{{biddata.username}}</span></td>
       <td>{{biddata.cap}}</td>
       <td>{{biddata.amount}}</td>
-      
+      <td>{{biddata.updatedDate | date : 'mediumDate'}}</td>
       <td>{{biddata.status}}</td>
       <td>
         <button type=" button" class="btn">View</button>

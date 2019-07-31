@@ -1,0 +1,29 @@
+<div class="jw-modal overlay">
+    <div class="jw-modal-body text">
+        <div class="Header" style="background-color: brown;padding: 10px">
+            <span>User List</span>
+        </div>
+        <div class="ModelDesign">
+            
+
+            <div class="">
+                <table class="table">
+                    <tr>
+                        <td>Username</td>
+                        <td>Phone Number</td>
+                        <td>Organiser</td>
+                    </tr>
+                    <tr *ngFor="let userlist of UserList">
+                        <td>{{userlist.username}}</td>
+                        <td>{{userlist.phonenumber}}</td>
+                        <td>{{userlist.organiser}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <ng-content></ng-content>
+        </div>
+
+    </div>
+</div>
+<div class="jw-modal-background"></div>
