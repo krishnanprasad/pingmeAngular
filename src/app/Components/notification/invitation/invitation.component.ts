@@ -1,25 +1,75 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NotificationService } from 'src/app/Services/notification.service';
+import { UpdateInvitation } from 'src/app/Interface/update-invitation';
 @Component({
-    selector: 'invitation',
-    templateUrl: './invitation.component.html',
-    styleUrls: ['./invitation.component.css']
+  selector: 'invitation',
+  templateUrl: './invitation.component.html',
+  styleUrls: ['./invitation.component.css']
 })
 
 export class InvitationComponent implements OnInit {
-    constructor() { }
 
-    ngOnInit() {
+  public CurrentTab: number;
+  userid: string;
+  invitationlist: any;
+  updateinv:UpdateInvitation={UserId:'',ConnectionId:'',StatusId:0};
+  constructor(private _notificationservice: NotificationService) { }
+
+  ngOnInit() {
+    this.CurrentTab = 1;
+    this.userid = sessionStorage.getItem('userid');
+    this._notificationservice.GetInvitationList(this.userid).subscribe(invitationlistResponse => {
+      if (invitationlistResponse != "No User") {
+        debugger;
+        this.invitationlist = invitationlistResponse;
+      }
+      else {
+        console.log('No DATA');
+      }
     }
-
-    InvitationList = [
-        { servicename: 'Netflix', type: "Utility", brandcolor: '#e52e2d', logo: 'netflix.jpg', method: 'Monthly', connected: '9790794621' },
-        { servicename: 'Amazon Prime', type: "Utility", brandcolor: '#56ace9', logo: 'amazonprime.jpg', method: 'Monthly', connected: '9790794621' },
-        { servicename: 'ICICI Insurance', type: "Self", brandcolor: '#972929', logo: 'iciciinsurance.jpg', method: 'Monthly', connected: '9790794621' },
-        { servicename: 'Shopper Stop', type: "Gift", brandcolor: '#000000', logo: 'shoppersstop.jpg', method: 'Monthly', connected: 'krishnanprasadraghvendra.93@gmail.com' },
-        { servicename: 'RMKV', type: "Gift", brandcolor: '#f2c20f', logo: 'rmkv.jpg', daysleft: '12', method: 'Monthly', connected: '9790794621' },
-        { servicename: 'Bajaj', type: "Maintenance", brandcolor: '#1b3399', logo: 'bajaj.jpg', method: 'Monthly', connected: '9790794621' },
-        { servicename: 'Croma', type: "Gift", brandcolor: '#00b9bf', logo: 'croma.png', method: 'Monthly', connected: 'krishnanra.92@gmail.com' },
-
-    ]
+    )
+  }
+  UpdateInvitation(connectionid,statusId){
+    debugger;
+   if(statusId==1)
+   {
+    if(window.confirm('Are sure you want to Join this Chit ?')){
+      //put your delete method logic here
+      this.updateinv.StatusId=statusId;
+      this.updateinv.ConnectionId=connectionid;
+      this.updateinv.UserId=this.userid;
+      debugger;
+      this._notificationservice.UpdateInvitation(this.updateinv).subscribe(invitationlistResponse => {
+        if (invitationlistResponse != "No User") {
+          debugger;
+          alert('Successfully Joined Chit');
+        }
+        else {
+          console.log('No DATA');
+        }
+      }
+      )
+     }
+    }
+    if(statusId==3)
+   {
+    if(window.confirm('Are sure you want to Reject the Chit?')){
+      //put your delete method logic here
+      this.updateinv.StatusId=statusId;
+      this.updateinv.ConnectionId=connectionid;
+      this.updateinv.UserId=this.userid;
+      debugger;
+      this._notificationservice.UpdateInvitation(this.updateinv).subscribe(invitationlistResponse => {
+        if (invitationlistResponse != "No User") {
+          debugger;
+          alert('Rejected the Chit');
+        }
+        else {
+          console.log('No DATA');
+        }
+      }
+      )
+     }
+    }
+  }
 }

@@ -22,7 +22,7 @@ export class PaymentPageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.UserId = sessionStorage.getItem('userid'),
+      this.UserId = sessionStorage.getItem('userid'),
       this.ChitId = this.route.snapshot.paramMap.get("chitid"),
       this.TermGroupId = this.route.snapshot.paramMap.get("termgroupid"),
 

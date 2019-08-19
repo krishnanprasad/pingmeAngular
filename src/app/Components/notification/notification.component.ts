@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/Services/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
   public CurrentTab: number;
-  constructor() { }
+  constructor(private _NotificationService:NotificationService) { }
 
   ngOnInit() {
     this.CurrentTab = 1;

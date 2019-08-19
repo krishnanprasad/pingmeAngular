@@ -3,20 +3,70 @@
         <div class="Header" style="background-color: brown;padding: 10px">
             <span>User List</span>
         </div>
-        <div class="ModelDesign">
-            
 
-            <div class="">
+        <div class="ModelDesign">
+            <div class="d-inline-flex">
+                <div class="p-2">
+                    <input type="button" class="btn" value="Accepted" (click)="ChangeTab(1)" />
+                </div>
+                <div class="p-2">
+                    <input type="button" class="btn" value="Invities" (click)="ChangeTab(2)" />
+                </div>
+                <div class="p-2">
+                    <input type="button" class="btn" value="Send Request" (click)="ChangeTab(3)" />
+                </div>
+            </div>
+            <div *ngIf="CurrentTab==3">
+                <!-- <input type="button" class="btn btn-success btn-block" value="Invite Friends" /> -->
+                <div class="card">
+                    <input type="text" class="form-control" placeholder="Enter User Name" (input)="onSearchChange($event.target.value)" [(ngModel)]="SearchTerm" />
+                </div>
+                <div>
+                    <span *ngIf="NoResultsFound" style="color:coral">No Results Found</span>
+                    <div class="d-flex justify-content-between" *ngFor="let search of SearchNameResult">
+                        <div class="p-2" style="color: black">{{search.username}}</div>
+                        <div class="p-2" style="color: black">{{search.userid}}</div>
+                        <div class="p-2">
+                            <input type="button" class="btn" value="Invite" (click)="SendInvitation(search.userid)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="" *ngIf="CurrentTab==1">
                 <table class="table">
                     <tr>
                         <td>Username</td>
                         <td>Phone Number</td>
                         <td>Organiser</td>
+                        <td>Status</td>
                     </tr>
                     <tr *ngFor="let userlist of UserList">
-                        <td>{{userlist.username}}</td>
-                        <td>{{userlist.phonenumber}}</td>
-                        <td>{{userlist.organiser}}</td>
+                        <td *ngIf="userlist.statusid==1">{{userlist.username}}</td>
+                        <td *ngIf="userlist.statusid==1">{{userlist.phonenumber}}</td>
+                        <td *ngIf="userlist.statusid==1">{{userlist.organiser}}</td>
+                        <td *ngIf="userlist.statusid==1">
+                            <span *ngIf="userlist.statusid==1">Accepted</span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="" *ngIf="CurrentTab==2">
+                <table class="table">
+                    <tr>
+                        <td>Username</td>
+                        <td>Phone Number</td>
+                        <td>Organiser</td>
+                        <td>Status</td>
+                    </tr>
+                    <tr *ngFor="let userlist of UserList">
+                        <td *ngIf="userlist.statusid==0">{{userlist.username}}</td>
+                        <td *ngIf="userlist.statusid==0">{{userlist.phonenumber}}</td>
+                        <td *ngIf="userlist.statusid==0">{{userlist.organiser}}</td>
+                        <td *ngIf="userlist.statusid==0">
+                            <span *ngIf="userlist.statusid==0">Invited</span>
+                        </td>
                     </tr>
                 </table>
             </div>

@@ -7,8 +7,7 @@
     <div class="d-flex" style=" margin-top: 20px ">
       <div class="p-2 mr-auto">
         <h3 style=" display: inline-block ">{{chitDetails.chitname}}</h3>
-        <span style=" margin-left: 10px"
-          class=" Raised">Closed
+        <span style=" margin-left: 10px" class=" Raised">Closed
           Circle</span>
       </div>
       <div class="p-2">
@@ -21,7 +20,7 @@
 
     </div>
 
-    <div class=" row">
+    <div class="row">
 
       <div class="col-md-12">
 
@@ -58,7 +57,7 @@
               <div class="flex-grow-1" style=" padding: 5px 10px ">
                 <h6 style=" text-align: left; color: #868686 ">EMI</h6>
                 <h3 style=" text-align: left ">{{chitDetails.emi}}</h3>
-                <span style=" text-align: left ">+ 640 Interest</span>
+                <span style=" text-align: left ">-</span>
               </div>
             </div>
           </div>
@@ -101,21 +100,21 @@
 
         <!-- {/* Chit Tenure */} -->
 
-        <div class="p-3  flex-wrap" style=" margin-bottom: 10px ">
+        <div class="p-3  flex-wrap" style="margin-bottom: 10px ">
           <div class="row" style=" margin-bottom: 10px ">
             <span class="SecondBlack" style=" font-size: 20px ">Tenures</span>
           </div>
           <div class="d-flex">
             <div class="nonactiveTerm flex-fill" [ngClass]="{
               'activeTerm':termgroupid === TermGroupList.termgroupid            
-            }" (click)="ChangeTenure(TermGroupList.termgroupid)" *ngFor="let TermGroupList of chitTerm">
+            }" (click)="ChangeTenure(TermGroupList.termgroupid)" *ngFor="let TermGroupList of chitTerm; let i = index">
               <div style=" margin-right: 20px; display: table" class="">
                 <span [ngClass]="{
                   'text-completed':TermGroupList.DiffDate === 'Completed',
                   'text-current':TermGroupList.DiffDate === 'Current',
                   'text-future':TermGroupList.DiffDate === 'Future'
-                }"
-                  style=" cursor: pointer; display: table-cell; vertical-align: middle; font-size: 22px ">#{{TermGroupList.sno}}</span>
+                }" style=" cursor: pointer; display: table-cell; vertical-align: middle; font-size: 22px ">#{{i+1}}
+                </span>
               </div>
               <!-- <span class="LoanRaisedStatus">Loaned</span> -->
 
@@ -124,38 +123,77 @@
 
           </div>
         </div>
-        <div class="d-flex ACard" *ngIf="IsTransactionDone?.length==0">
-          <!-- Length of Array is {{IsTransactionDone.length}} -->
-          <div class="p-2 flex-fill">
-            <div class="d-flex flex-column" style="text-align: center">
-              <div class="p-2"> <span>Total Amount to be Paid: {{chitDetails.emi}}</span></div>
-              <div class="p-2"><input type="button" class="btn btn-success" (click)="PayEMI()" value="Pay EMI" /></div>
-            </div>
-          </div>
-          <div class="p-2  flex-fill">
-            <div class="d-flex flex-column" style="text-align: center">
-              <div class="p-2">
-                <span>Take Loan : <input type="text" class="form-control" placeholder="Enter Amount" /> </span>
-              </div>
-              <div class="p-2">
-                <input type="button" class="btn btn-success" value="Take Loan" />
+        <div class="ACard col-md-12" *ngIf="IsTransactionDone?.length==0">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="d-flex" style=" display: block ">
+                <div style=" padding: 5px ">
+
+                </div>
+
+                <div class="flex-grow-1" style=" padding: 5px 10px ">
+                  <h6 style=" text-align: left;color: #868686 ">Start Date</h6>
+                  <span style=" text-align: left ">{{tenureDetails.startdate| date : 'mediumDate'}}</span>
+                </div>
               </div>
             </div>
+            <div class="col-md-3">
+              <div class="d-flex" style="display: block ">
+                <div style=" padding:5px ">
+
+                </div>
+
+                <div class="flex-grow-1" style=" padding: 5px 10px ">
+                  <h6 style=" text-align: left; color: #868686 ">End Date</h6>
+                  <span style=" text-align: left ">{{tenureDetails.enddate| date : 'mediumDate'}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex" style="display: block ">
+                <div style=" padding:5px ">
+
+                </div>
+
+                <div class="flex-grow-1" style=" padding: 5px 10px ">
+                  <h6 style=" text-align: left; color: #868686 ">Loan</h6>
+                  <span style=" text-align: left "> <input type="button" class="btn btn-success"
+                      value="Take Loan" /></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex" style=" display: block ">
+                <div style=" padding: 5px ">
+                  
+                </div>
+
+                <div class="flex-grow-1" style=" padding: 5px 10px ">
+                  <h6 style=" text-align: left; color: #999a9a ">EMI</h6>
+                  <h3 class="SecondBlack" style=" text-align: left ">{{chitDetails.emi}}</h3>
+                  <input type="button" class="btn btn-success" (click)="PayEMI()" value="Pay EMI" />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div *ngIf="IsTransactionDone?.length>0">
-          <p>Hello {{termgroupNumber}}</p>
-          <p>Payment Paid on {{IsTransactionDone[0].Createddate}}</p>
-        </div>
 
-        <div>
-          <bid-table [bidlist]="tenureBidList"></bid-table>
         </div>
-        <div>
-          <transaction-table-payment [transactiondetails]="tenureTransactionList"></transaction-table-payment>
-        </div>
+        <!-- Length of Array is {{IsTransactionDone.length}} -->
 
-        <!-- <div>
+      </div>
+      <div *ngIf="IsTransactionDone?.length>0">
+        <p>Hello {{termgroupNumber}}</p>
+        <p>Payment Paid on {{IsTransactionDone[0].Createddate}}</p>
+      </div>
+
+      <div>
+        <bid-table [bidlist]="tenureBidList"></bid-table>
+      </div>
+      <div>
+        <transaction-table-payment [transactiondetails]="tenureTransactionList"></transaction-table-payment>
+      </div>
+
+      <!-- <div>
         {
         this.state.isTenureActive === 1 ?
         <ChitDetail /> : null
@@ -175,13 +213,12 @@
       </div> -->
 
 
-      </div>
-  
     </div>
+
+
   </div>
 </div>
 
-<jw-modal id="userlist" [UserList]="userList">  
+<jw-modal id="userlist" [UserList]="userList">
   <button class="btn btn-danger" (click)="closeModal('userlist');">Close</button>
 </jw-modal>
-

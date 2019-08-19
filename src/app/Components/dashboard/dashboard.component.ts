@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   private Userid: string;
   Iserror: boolean = false;
   errorMessage: string = "Wrong Credentials..";
-
+  UpComingChitDetailsList:any;
   ChitDetailsList: any;
   IsChitNull: boolean = false;
   constructor(private _dashboard: DashboardService, ) { }
@@ -26,7 +26,8 @@ export class DashboardComponent implements OnInit {
         debugger;
         console.log("**--chitdata is Available--**");
         console.log(chitdata);
-        this.ChitDetailsList = chitdata;
+        this.ChitDetailsList = chitdata["CurrentChitList"];
+        this.UpComingChitDetailsList = chitdata["UpComingChitList"];
         //localStorage.setItem('userid', data[0].userid);
         //this.userData = data;       
         this.Iserror = false;

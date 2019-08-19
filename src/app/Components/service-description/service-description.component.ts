@@ -27,6 +27,7 @@ export class ServiceDescriptionComponent implements OnInit {
   termgroupNumber: any;
   userList: any;
   Hello: { "Name": string; }[];
+  IsOrganiser: any;
   constructor(
     private _ServiceDescription: ServiceDescriptionService,
     private route: ActivatedRoute,
@@ -40,26 +41,39 @@ export class ServiceDescriptionComponent implements OnInit {
   }
   ngOnInit() {
     this.chitid = this.route.snapshot.paramMap.get("chitid");
-    this._ServiceDescription.getChitDetails(this.chitid).subscribe(chitdata => {
+    this.userid = sessionStorage.getItem("userid");
+
+
+    this._ServiceDescription.getChitDetails(this.chitid, this.userid).subscribe(chitdata => {
       if (chitdata != "No User") {
-     
+        debugger;
         this.chitDetails = chitdata["ChitDetails"];
         this.chitTerm = chitdata["ChitTermGroupList"];
 
         this.chitUserList = chitdata["ChitUserDetails"];
-    
-        this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current')[0].termgroupid;
+        this.IsOrganiser = chitdata["IsOrganiser"];
      
+
+        this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current');
+        debugger;
+        if (this.termgroupid.length==0) {
+          this.termgroupid = '0';
+        }
+        else{
+          this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current')[0].termgroupid;
+        }
+       
         this.Iserror = false;
-        this.userid = sessionStorage.getItem("userid");
-      
+
+
         this._ServiceDescription.getTenureDetails(this.userid, this.chitid, this.termgroupid).subscribe(chitdata => {
           if (chitdata != "No User") {
-         
+            debugger;
             this.tenureBidList = chitdata["TermGroupBidList"];
             this.tenureTransactionList = chitdata["TenureTransactionList"];
+            debugger;
             this.tenureDetails = chitdata["TransactopnChitTermDetails"];
-        
+
             this.IsTransactionDone = chitdata["IsTransactionDoneForCurrentTerm"];
             // if(this.IsTransactionDone.length!=00)
             console.log(this.IsTransactionDone);
@@ -87,16 +101,16 @@ export class ServiceDescriptionComponent implements OnInit {
 
   }
 
-  getUserListOfChit(id){
+  getUserListOfChit(id) {
     debugger;
     this._ServiceDescription.getUserList(this.chitid).subscribe(ResponseData => {
       if (ResponseData != "No User") {
         debugger;
         this.userList = ResponseData;
-        this.Hello=[{"Name":"Krishnan"}]
+        this.Hello = [{ "Name": "Krishnan" }]
         this.modalService.open(id);
+      }
     }
-  }
     )
   }
   ChangeTenure(termgroupid) {
@@ -134,7 +148,7 @@ export class ServiceDescriptionComponent implements OnInit {
   openModal(id: string) {
     this.getUserListOfChit(id);
     // this.modalService.open(id);
-    
+
 
   }
 

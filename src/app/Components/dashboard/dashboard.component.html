@@ -1,14 +1,13 @@
-
 <!-- <div style="margin-top: 70px"> -->
-  <div class="row justify-content-center" style="margin-top: 70px">
+<div class="row justify-content-center" style="margin-top: 70px">
 
-    <div class="col-lg-10">
+  <div class="col-lg-10">
 
-      <!-- <div class="col-lg-10">
+    <!-- <div class="col-lg-10">
         {this.SearchCard()}
       </div> -->
 
-      <!-- <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <h5>Subscription</h5>
        
       </div>
@@ -53,21 +52,29 @@
           <service-card [ServiceData]="Selfs"></service-card>
         </div>
       </div> -->
-    
-      <div class="col-md-12">
-        <h6>Chit Details</h6>
-        
-      </div>
-      <div class="row" *ngIf="!IsChitNull">
-        <div class="col-md-4" *ngFor="let ChitDetails of ChitDetailsList">
 
-          <chit-card [ServiceData]="ChitDetails"></chit-card>
-        </div>
-      </div>
-      <div *ngIf="IsChitNull">
-        <p>No Chits Found</p>
-      </div>
+    <div class="col-md-12">
+      <h6>Chit Details</h6>
 
     </div>
-  </div>
+    <div class="row" *ngIf="!IsChitNull">
+      <div class="col-md-4" *ngFor="let ChitDetails of ChitDetailsList">
 
+        <chit-card [ServiceData]="ChitDetails"></chit-card>
+      </div>
+    </div>
+    <div *ngIf="IsChitNull">
+      <p>No Chits Found</p>
+    </div>
+    <div class="col-md-12">
+      <h6>Up Coming Chit Details</h6>
+
+    </div>
+    <div class="row" *ngIf="!IsChitNull">
+      <div class="col-md-4" *ngFor="let upcomingchitdetails of UpComingChitDetailsList">
+
+        <chit-card [ServiceData]="upcomingchitdetails"></chit-card>
+      </div>
+    </div>
+  </div>
+</div>

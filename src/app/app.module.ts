@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
@@ -26,7 +26,13 @@ import { ChitCardComponent } from './Common/chit-card/chit-card.component';
 import { PaymentPageComponent } from './Components/payment-page/payment-page.component';
 import { DummyPageComponent } from './Components/dummy-page/dummy-page.component';
 import { ModalComponent } from './Common/Modal/modal.component';
-
+import { CreateChitComponent } from './Components/create-chit/create-chit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatFormFieldModule, MatInputModule,MatGridListModule,MatSelectModule } from "@angular/material";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+//import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +57,8 @@ import { ModalComponent } from './Common/Modal/modal.component';
     PaymentPageComponent,
     ModalComponent,
     DummyPageComponent,
+    CreateChitComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -58,9 +66,19 @@ import { ModalComponent } from './Common/Modal/modal.component';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MatDatepickerModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

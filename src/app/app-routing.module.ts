@@ -11,6 +11,7 @@ import { ServiceDescriptionComponent } from './Components/service-description/se
 import { OTPVerifyComponent } from './Components/otpverify/otpverify.component';
 import { PaymentPageComponent } from './Components/payment-page/payment-page.component';
 import { DummyPageComponent } from './Components/dummy-page/dummy-page.component';
+import { CreateChitComponent } from './Components/create-chit/create-chit.component';
 
 const routes: Routes = [
   {
@@ -57,7 +58,11 @@ const routes: Routes = [
       {
         path: 'Dummy',
         component: DummyPageComponent,
-      },  
+      },
+      {
+        path:'CreateChit',
+        component:CreateChitComponent
+      }  
     ]
   },
   
