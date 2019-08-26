@@ -26,7 +26,7 @@ export class CreateChitService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
 
-    return this.http.post("http://localhost:60317/api/CreateChit/CreateNewChit",
+    return this.http.post("http://edpicker.in/api/CreateChit/CreateNewChit",
       _NewCreateChitJson,
       httpOptions
     );

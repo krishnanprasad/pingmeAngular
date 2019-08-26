@@ -1,5 +1,14 @@
-<p>
-  The OTP is {{OTP}} for {{PhoneNumber}}
-</p>
-<input type="text" class="form-control" [(ngModel)]="OTP" />
-<input type="button" class="btn" value="Log In" (click)="VerifyOTP()"/>
+<div style="margin: auto" class="card OTPDiv">
+  <div style="color: #464159;text-align: center;font-size: 24px;margin-bottom:20px;font-weight: bolder">
+    <span>Welcome to Chittie</span>
+  </div>
+  <div style="text-align: center;font-size: 16px;;margin-bottom:20px;">
+    <span>Please Enter Your OTP</span>
+  </div>
+  <p>
+    The OTP is {{OTP}} for {{PhoneNumber}}
+  </p>
+
+  <input type="text" class="form-control" [(ngModel)]="OTP" />
+  <input type="button" class="btn BaseBorderColor BaseFontColor" style="margin-top: 20px;margin-bottom:20px" value="Log In" (click)="VerifyOTP()" />
+</div>

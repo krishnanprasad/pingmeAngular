@@ -13,10 +13,10 @@
     color: green !important;
 }
 .text-future{
-    color: blue !important;
+    color: #464159 !important;
 }
 .activeTerm{
-    background-color: #E91E63 !important;
+    background-color: #464159 !important;
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -24,12 +24,12 @@
     color: white !important;
 }
 .nonactiveTerm{
-    background-color:#d6d6d6;
-    border-radius: 50%;
+    border:1px solid #464159;
+    border-radius: 10px;
     height: 40px;
     width: 40px;
     text-align: center;
-    color: white;
+    color: #464159 !important;
 }
 .p-2 {
     padding: 0px !important;
@@ -93,4 +93,19 @@
     padding: 0px 3px;
     border-radius: 5px;
     color: #fffefe;
+}
+
+.CurrentTab{
+    background-color:  #464159;
+    color: white;
+}
+.NotCurrentTab{
+    border: 1px solid  #464159;
+    color:  #464159;
+
+}
+.status {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
 }

@@ -12,8 +12,8 @@ import { NavbarComponent } from './Common/navbar/navbar.component';
 import { ServicecardimgComponent } from './Common/servicecardimg/servicecardimg.component';
 import { ModalSidebarComponent } from './Conventional/modal-sidebar/modal-sidebar.component';
 import { NotificationComponent } from './Components/notification/notification.component';
-import { FeedsComponent } from './Components/Notification/feeds/feeds.component';
-import { InvitationComponent } from './Components/Notification/invitation/invitation.component';
+import { FeedsComponent } from './Components/notification/feeds/feeds.component';
+import { InvitationComponent } from './Components/notification/invitation/invitation.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AddPingComponent } from './Components/add-ping/add-ping.component';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +32,10 @@ import { MatDatepickerModule, MatNativeDateModule, MAT_DATE_LOCALE } from '@angu
 import { MatFormFieldModule, MatInputModule,MatGridListModule,MatSelectModule } from "@angular/material";
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { ChitFriendListComponent } from './Conventional/chit-friend-list/chit-friend-list.component';
+import { ChitTimeTableComponent } from './Conventional/chit-time-table/chit-time-table.component';
+import { TenurecardComponent } from './Conventional/tenurecard/tenurecard.component';
 //import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     DummyPageComponent,
     CreateChitComponent,
+    ProfileComponent,
+    ChitFriendListComponent,
+    ChitTimeTableComponent,
+    TenurecardComponent,
     
   ],
   imports: [

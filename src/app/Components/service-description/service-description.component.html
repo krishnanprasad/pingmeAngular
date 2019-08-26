@@ -9,14 +9,18 @@
         <h3 style=" display: inline-block ">{{chitDetails.chitname}}</h3>
         <span style=" margin-left: 10px" class=" Raised">Closed
           Circle</span>
+        <input type="button" *ngIf="this.connectionStatus.statusid==0" class="btn BaseBorderColor BaseFontColor"
+          value="Accepted" />
+        <input type="button" *ngIf="this.connectionStatus.statusid==0"
+          class="btn btn-danger" value="Reject" />
       </div>
-      <div class="p-2">
+      <!-- <div class="p-2">
         <input type="button" class="btn btn-primary" (click)="open()" value="Term Chart" style="margin-left:10px">
         <input type=" button" class="btn btn-primary" value="Transaction Summary" style="margin-left:10px">
         <input type=" button" class="btn btn-primary" value="Earnings Report" style="margin-left:10px">
         <button class="btn btn-primary" (click)="openModal('userlist')">Chit Users</button>
 
-      </div>
+      </div> -->
 
     </div>
 
@@ -100,99 +104,120 @@
 
         <!-- {/* Chit Tenure */} -->
 
-        <div class="p-3  flex-wrap" style="margin-bottom: 10px ">
-          <div class="row" style=" margin-bottom: 10px ">
-            <span class="SecondBlack" style=" font-size: 20px ">Tenures</span>
-          </div>
-          <div class="d-flex">
-            <div class="nonactiveTerm flex-fill" [ngClass]="{
+
+
+
+
+        <div class="d-flex flex-row" style="margin-top: 20px;margin-bottom:20px">
+          <div class="p-2"><span class="status" [ngClass]="CurrentTab==1?'CurrentTab':'NotCurrentTab'"
+              (click)="SwitchTab(1)" *ngIf="this.connectionStatus.statusid==1">Tenure</span></div>
+          <div class="p-2"><span class="status" [ngClass]="CurrentTab==2?'CurrentTab':'NotCurrentTab'"
+              (click)="SwitchTab(2)">Members List</span></div>
+          <div class="p-2"><span class="status" [ngClass]="CurrentTab==3?'CurrentTab':'NotCurrentTab'"
+              (click)="SwitchTab(3)">Time Table</span></div>
+        </div>
+
+        <div class="col-md-12" *ngIf="CurrentTab==1">
+
+          <div class="p-3  flex-wrap" style="margin-bottom: 10px ">
+            <div class="row" style=" margin-bottom: 10px ">
+              <span class="SecondBlack" style=" font-size: 20px ">Tenures</span>
+            </div>
+            <div class="d-flex">
+              <div class="nonactiveTerm flex-fill" [ngClass]="{
               'activeTerm':termgroupid === TermGroupList.termgroupid            
             }" (click)="ChangeTenure(TermGroupList.termgroupid)" *ngFor="let TermGroupList of chitTerm; let i = index">
-              <div style=" margin-right: 20px; display: table" class="">
-                <span [ngClass]="{
+                <div style=" margin: auto; display: table" class="">
+                  <span [ngClass]="{
                   'text-completed':TermGroupList.DiffDate === 'Completed',
                   'text-current':TermGroupList.DiffDate === 'Current',
                   'text-future':TermGroupList.DiffDate === 'Future'
                 }" style=" cursor: pointer; display: table-cell; vertical-align: middle; font-size: 22px ">#{{i+1}}
-                </span>
+                  </span>
+                  <span *ngIf="TermGroupList.DiffDate === 'Current'" style="font-size: 10px;font-weight: 600;color:green">Current</span>
+                </div>
+                <!-- <span class="LoanRaisedStatus">Loaned</span> -->
+
               </div>
-              <!-- <span class="LoanRaisedStatus">Loaned</span> -->
-
-            </div>
 
 
-          </div>
-        </div>
-        <div class="ACard col-md-12" *ngIf="IsTransactionDone?.length==0">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="d-flex" style=" display: block ">
-                <div style=" padding: 5px ">
-
-                </div>
-
-                <div class="flex-grow-1" style=" padding: 5px 10px ">
-                  <h6 style=" text-align: left;color: #868686 ">Start Date</h6>
-                  <span style=" text-align: left ">{{tenureDetails.startdate| date : 'mediumDate'}}</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="d-flex" style="display: block ">
-                <div style=" padding:5px ">
-
-                </div>
-
-                <div class="flex-grow-1" style=" padding: 5px 10px ">
-                  <h6 style=" text-align: left; color: #868686 ">End Date</h6>
-                  <span style=" text-align: left ">{{tenureDetails.enddate| date : 'mediumDate'}}</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="d-flex" style="display: block ">
-                <div style=" padding:5px ">
-
-                </div>
-
-                <div class="flex-grow-1" style=" padding: 5px 10px ">
-                  <h6 style=" text-align: left; color: #868686 ">Loan</h6>
-                  <span style=" text-align: left "> <input type="button" class="btn btn-success"
-                      value="Take Loan" /></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="d-flex" style=" display: block ">
-                <div style=" padding: 5px ">
-                  
-                </div>
-
-                <div class="flex-grow-1" style=" padding: 5px 10px ">
-                  <h6 style=" text-align: left; color: #999a9a ">EMI</h6>
-                  <h3 class="SecondBlack" style=" text-align: left ">{{chitDetails.emi}}</h3>
-                  <input type="button" class="btn btn-success" (click)="PayEMI()" value="Pay EMI" />
-                </div>
-              </div>
             </div>
           </div>
+          <div class="ACard col-md-12" *ngIf="IsTransactionDone?.length==0">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="d-flex" style=" display: block ">
+                  <div style=" padding: 5px ">
+                  </div>
+                  <div class="flex-grow-1" style=" padding: 5px 10px ">
+                    <h6 style=" text-align: left;color: #868686 ">Start Date</h6>
+                    <span style=" text-align: left ">{{tenureDetails.startdate | date : 'mediumDate'}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex" style="display: block ">
+                  <div style=" padding:5px ">
+
+                  </div>
+
+                  <div class="flex-grow-1" style=" padding: 5px 10px ">
+                    <h6 style=" text-align: left; color: #868686 ">End Date</h6>
+                    <span style=" text-align: left ">{{tenureDetails.enddate| date : 'mediumDate'}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex" style="display: block ">
+                  <div style="padding:5px ">
+                  </div>
+                  <div class="flex-grow-1" style=" padding: 5px 10px ">
+                    <h6 style=" text-align: left; color: #868686 ">Loan</h6>
+                    <span style="text-align: left">
+                      <input type="button" *ngIf="IsChitStarted" class="btn btn-success" value="Take Loan" />
+                      <h3 class="SecondBlack">{{IsBidDoneForCurrentTerm.Amount}}</h3>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex" style=" display: block ">
+                  <div style=" padding: 5px ">
+
+                  </div>
+
+                  <div class="flex-grow-1" style=" padding: 5px 10px ">
+                    <h6 style=" text-align: left; color: #999a9a ">EMI</h6>
+                    <h3 class="SecondBlack" style=" text-align: left ">{{chitDetails.emi}}</h3>
+                    <input type="button" readonly="IsChitStarted" *ngIf="!IsChitStarted" class="btn btn-success" (click)="PayEMI()"
+                      value="Pay EMI" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- Length of Array is {{IsTransactionDone.length}} -->
+
+
+          <div *ngIf="IsTransactionDone?.length>0">
+            <p>Current Term {{termgroupNumber}} - <span style="color: hotpink;font-weight: bold">You Paid</span>  </p>
+            <p>Payment Paid on {{IsTransactionDone[0].Createddate | date : 'mediumDate' }}</p>
+          </div>
+          <transaction-table-payment [transactiondetails]="tenureTransactionList"></transaction-table-payment>
+          <div class="">
+            <bid-table [bidlist]="tenureBidList"></bid-table>
+          </div>
 
         </div>
-        <!-- Length of Array is {{IsTransactionDone.length}} -->
 
+        <div class="col-md-12" *ngIf="CurrentTab==2">
+          <chit-friend-list [IsOrganiser]="IsOrganiser" [IsChitStarted]="IsChitStarted"></chit-friend-list>
+        </div>
+        <div class="col-md-12" *ngIf="CurrentTab==3">
+          <chit-time-table></chit-time-table>
+        </div>
       </div>
-      <div *ngIf="IsTransactionDone?.length>0">
-        <p>Hello {{termgroupNumber}}</p>
-        <p>Payment Paid on {{IsTransactionDone[0].Createddate}}</p>
-      </div>
-
-      <div>
-        <bid-table [bidlist]="tenureBidList"></bid-table>
-      </div>
-      <div>
-        <transaction-table-payment [transactiondetails]="tenureTransactionList"></transaction-table-payment>
-      </div>
-
       <!-- <div>
         {
         this.state.isTenureActive === 1 ?

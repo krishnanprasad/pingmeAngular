@@ -44,7 +44,15 @@
     display: block;
     margin: auto;
 }
-
+.BaseBackgroundColor{
+    background-color:  #464159 !important;
+}
+.BaseFontColor{
+    color: #464159 !important;
+}
+.BaseBorderColor{
+    border:1px solid #464159 !important;
+}
 @media only screen and (max-width: 600px) {
     .ImageDiv {
         text-align: center;

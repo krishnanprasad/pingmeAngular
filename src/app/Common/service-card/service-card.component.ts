@@ -9,7 +9,7 @@ export class ServiceCardComponent implements OnInit {
   @Input() ServiceData: any;
 
 
-  private uploadSuccess: EventEmitter<string> = new EventEmitter();
+  public uploadSuccess: EventEmitter<string> = new EventEmitter();
   public randomNumber: number;
 
 

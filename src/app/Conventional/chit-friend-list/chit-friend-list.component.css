@@ -1,0 +1,28 @@
+.accepted{
+    background-color: rgb(0, 121, 0);
+    color: white;
+}
+
+.rejected{
+    background-color: rgba(230, 0, 0, 0.973);
+    color: white;
+}
+
+.invited{
+    background-color: rgb(0, 84, 211);
+    color: white;
+}
+.status {
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.CurrentTab{
+    background-color:  #464159;;
+    color: white;
+}
+.NotCurrentTab{
+    border-color:  #464159;;
+    color:  #464159;;
+    border-width: 1px;
+}

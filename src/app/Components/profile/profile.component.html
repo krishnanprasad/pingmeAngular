@@ -1,0 +1,40 @@
+<div class="row justify-content-center" style="margin-top: 70px">
+
+  <div class="col-lg-10">
+    profile works!
+
+    <div class="row h10">
+      <div class="col-md-4">
+        <span>Name</span>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="Profile.UserName" placeholder="Your Name" />
+      </div>
+    </div>
+    <div class="row h10">
+      <div class="col-md-4">
+        <span>Email</span>
+      </div>
+      <div class="col-md-8">
+        <input type="email" class="form-control" [(ngModel)]="Profile.Email" placeholder="Your Email" />
+      </div>
+    </div>
+    <div class="row h10">
+      <div class="col-md-4">
+        <span>Phone Number</span>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" readonly [(ngModel)]="Profile.PhoneNumber" placeholder="Your Phone Number" />
+      </div>
+    </div>
+    <div class="row h10">
+      <div class="col-md-4">
+        <span>User Id</span>
+      </div>
+      <div class="col-md-8">
+        {{UserId}} --
+      </div>
+    </div>
+    <input type="button" class="btn btn-success" value="Save" (click)="SaveProfile()" />
+  </div>
+</div>

@@ -1,16 +1,111 @@
-
 <div *ngIf="!IsSpinner">
-  <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber" placeholder="Enter User Name" />
+  <!-- <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber" placeholder="Enter User Name" />
 
   <input type="button" class="btn btn-success" (click)="CheckUserCredetials()" value="Click Me to Get User Date" />
-  <p>{{userData.username}}</p>
+  <p>{{userData.username}}</p> -->
 </div>
 <div class="overlay" *ngIf="IsSpinner">
-  <div class="loader" ></div>
+  <div class="loader"></div>
 </div>
 
-
+<!-- 
 <div *ngIf="Iserror">
-  <div id="snackbar" [ngClass]="Iserror ? 'show' : ''">{{errorMessage}}</div>
+  <div id="snackbar" [ngClass]="Iserror ?show' :'">{{errorMessage}}</div>
 
+</div> -->
+
+<div class="LoginPage">
+  <div>
+    <div style=" background-color:#464159;padding:10px 10px">
+      <h2 style="color:white">Chittie <span style=" font-size:15px">[ create your own bank ]</span></h2>
+    </div>
+
+
+    <!-- <div class="row" style="margin-top:0px; background-color:#ff9900; background-image: linear-gradient(180deg;#ff9900;#fdca2e); height:500px"> -->
+    <div class="row" style="margin-top:0px; background-color:#464159;height:500px;">
+      <div class="col-md-7" style=" margin-top:auto; margin-bottom:auto; padding-left:50px">
+        <h1 style="color:white">Save and Lend Money Simultaneously</h1>
+
+        <h5 style="color:white">Do Banking with your Friends;Family and Collegues Easily & Quickly</h5>
+
+      </div>
+      <div class="col-md-5" style=" margin-top:auto; margin-bottom:auto;">
+        <div style=" background-color:#524b6b; padding:40px 20px; height:280px; width:95%">
+          <div class="form-group">
+            <p class="" style="font-size: 20px;color:whitesmoke">Please Enter Phone Number</p>
+            <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber"
+              placeholder="Enter Phone Number" />
+          </div>
+          <input type="button" class="btn" style=" background-color:#524b6b; color:white;border: 1px solid white"
+            (click)="CheckUserCredetials()" value="Get into Chittie" />
+
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="SecondBlack" style=" text-align:center; margin-top:40px;color:#464159">How it Works!</h3>
+      <div class="row" style="height:300px">
+        <div class="col-md-3" style=" margin-top:20px;margin-bottom:20px">
+          <div style="text-align:center">
+            <img src="./assets/Icons/med1.png" style="width:80px;height:80px" alt="userimage" />
+            <div style=" display:block; margin-top:10px">
+              <span class="BaseFontColor" style=" font-weight: 600;font-size:18px; display:block">Create Chit</span>
+              <span class="ThirdBlack" style=" font-size:14px; display:block">Create a Chit based on Value,Tenure &
+                Interest Rates</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" style=" margin-top:20px; margin-bottom:20px">
+          <div style=" text-align:center">
+            <img src="./assets/Icons/med2.png" style="width:80px; height:80px" alt="userimage" />
+            <div style=" display:block; margin-top:10px">
+              <span class="BaseFontColor" style="font-weight: 600;font-size:18px; display:block">Add Members</span>
+              <span class="ThirdBlack" style=" font-size:14px; display:block">Invite members from your connections for
+                the Chit</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" style=" margin-top:20px; margin-bottom:20px">
+          <div style=" text-align:center">
+            <img src="./assets/Icons/med3.png" style="width:80px; height:80px" alt="userimage" />
+            <div style="display:block;margin-top:10px">
+              <span class="BaseFontColor" style=" font-weight: 600;font-size:18px; display:block">Start Chit</span>
+              <span class="ThirdBlack" style=" font-size:14px; display:block">Once all members accepted chit it get
+                started ,Chittie will start reminding your connections periodically</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" style=" margin-top:20px; margin-bottom:20px">
+          <div style=" text-align:center">
+            <img src="./assets/Icons/med4.png" style="width:80px; height:80px" alt="
+              userimage" />
+            <div style="display:block; margin-top:10px">
+              <span class="BaseFontColor" style=" font-weight: 600;font-size:18px; display:block">Save & Lend</span>
+              <span class="ThirdBlack" style=" font-size:14px; display:block">Start saving by paying CHIT regularly and
+                Lend money when ever you want;At the end group members get divident on all Interest paid from
+                lenders</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"
+      style="margin-top:0px; background-color:#464159; height:120px">
+      <div class="col-md-12" style="margin-top:auto; margin-bottom:auto">
+        <div class="row">
+          <div class="col-md-3" style=" text-align:center">
+            <span style=" color:white">Invite your Friends</span>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Invite your Friends" />
+
+          </div>
+          <div class="col-md-3">
+            <button class="btn" style="color: whitesmoke;border: 1px solid white" type="button">Invite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

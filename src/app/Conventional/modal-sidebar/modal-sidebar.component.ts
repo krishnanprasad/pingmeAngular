@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./modal-sidebar.component.css']
 })
 export class ModalSidebarComponent implements OnInit {
-  private ModelName: any;
+  public ModelName: any;
   @Input() private uploadSuccess: EventEmitter<boolean>;
   @Output() private numberGenerated = new EventEmitter<number>();
   @Input('dataValue') dataValue: any;

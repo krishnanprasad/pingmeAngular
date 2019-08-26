@@ -14,20 +14,28 @@ export class DashboardComponent implements OnInit {
   UpComingChitDetailsList:any;
   ChitDetailsList: any;
   IsChitNull: boolean = false;
+  TotalChits: any;
+  TotalSavings: any;
+  TotalLoansAvailed: any;
+  Username: string;
+  IsUpcomingChitNull: boolean=false;
+  InvitedChitList: any;
   constructor(private _dashboard: DashboardService, ) { }
 
   ngOnInit() {
     this.Userid = sessionStorage.getItem("userid");
+    this.Username= sessionStorage.getItem("username");
     debugger;
     console.log("**--Userid--**" + this.Userid);
-    this._dashboard.getChitDetails(this.Userid).subscribe(chitdata => {
+    this._dashboard.getDashboardDetails(this.Userid).subscribe(chitdata => {
    
       if (chitdata['length'] != 0) {
         debugger;
         console.log("**--chitdata is Available--**");
         console.log(chitdata);
-        this.ChitDetailsList = chitdata["CurrentChitList"];
-        this.UpComingChitDetailsList = chitdata["UpComingChitList"];
+        this.TotalChits = chitdata["TotalChits"];
+        this.TotalSavings = chitdata["TotalSavings"];
+        this.TotalLoansAvailed = chitdata["TotalLoansAvailed"];
         //localStorage.setItem('userid', data[0].userid);
         //this.userData = data;       
         this.Iserror = false;
@@ -40,6 +48,7 @@ export class DashboardComponent implements OnInit {
       }
     }
     )
+    this.getDashboardDetails();
   }
   UserService = {
     Subscription:
@@ -64,5 +73,29 @@ export class DashboardComponent implements OnInit {
     Maintenance: [
       { servicename: 'House Maintenance', type: "Maintenance", brandcolor: '#00b9bf', logo: 'girias.jpeg', daysleft: 19, enddate: '05 - Jul - 19', cost: 1640, offer: '5% Cashback' },
     ]
+  }
+  getDashboardDetails(){
+    this._dashboard.getChitDetails(this.Userid).subscribe(chitdata => {
+   
+      if (chitdata['length'] != 0) {
+        debugger;
+        console.log("**--chitdata is Available--**");
+        console.log(chitdata);
+        this.ChitDetailsList = chitdata["CurrentChitList"];
+        this.UpComingChitDetailsList = chitdata["UpComingChitList"];
+        this.InvitedChitList = chitdata["UserChitInvitationList"];
+        //localStorage.setItem('userid', data[0].userid);
+        //this.userData = data;       
+        this.Iserror = false;
+      }
+      else {
+        debugger;
+        this.IsChitNull = true;
+        this.IsUpcomingChitNull = true;
+        this.errorMessage = "Welcome New User";
+        console.log('No Chit Found');
+      }
+    }
+    )
   }
 }

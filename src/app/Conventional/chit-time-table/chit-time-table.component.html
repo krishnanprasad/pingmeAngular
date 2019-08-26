@@ -1,0 +1,36 @@
+<div style="margin:10px 0px">
+  <h5>Tenure Time Table</h5>
+  <table class="table">
+    <tr class="BaseBackgroundColor" style="color:whitesmoke">
+      <td>Tenure</td>
+      <td>Start Date</td>
+      <td>End Date</td>
+      <td>EMI Amount</td>
+    </tr>
+    <tr *ngFor="let chittable of tenureTimeTable">
+      <td>{{chittable.termnumber}} </td>
+      <td>{{chittable.startdate | date : 'mediumDate'}}</td>
+      <td>{{chittable.enddate | date : 'mediumDate'}}</td>
+      <td>{{chittable.EMIAmount}}</td>
+    </tr>
+  </table>
+</div>
+
+
+<div style="margin:10px 0px">
+  <h5>BID Time Table</h5>
+  <table class="table">
+    <tr class="BaseBackgroundColor" style="color:whitesmoke">
+      <td>Tenure</td>
+      <td>Start Date</td>
+      <td>End Date</td>
+      <td>Bid Max Value</td>
+    </tr>
+    <tr *ngFor="let bidtable of chitTimeTable; let i = index">
+      <td>{{bidtable.i}}</td>
+      <td>{{bidtable.startDate | date : 'mediumDate'}}</td>
+      <td>{{bidtable.endDate  | date : 'mediumDate'}}</td>
+      <td>{{bidtable.Amount}}</td>
+    </tr>
+  </table>
+</div>
