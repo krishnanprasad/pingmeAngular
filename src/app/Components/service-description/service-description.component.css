@@ -23,6 +23,11 @@
     text-align: center;
     color: white !important;
 }
+
+.activeTerm .text-future{
+    color:white !important;
+}
+
 .nonactiveTerm{
     border:1px solid #464159;
     border-radius: 10px;

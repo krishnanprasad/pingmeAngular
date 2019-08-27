@@ -35,6 +35,7 @@ export class ServiceDescriptionComponent implements OnInit {
   connectionStatus: any;
   CurrentDate = new Date();
   IsBidDoneForCurrentTerm: any;
+  TotalAcceptedInvite: any;
   constructor(
     private _ServiceDescription: ServiceDescriptionService,
     private route: ActivatedRoute,
@@ -53,13 +54,14 @@ export class ServiceDescriptionComponent implements OnInit {
 
     this._ServiceDescription.getChitDetails(this.chitid, this.userid).subscribe(chitdata => {
       if (chitdata != "No User") {
-        debugger;
+       
         this.chitDetails = chitdata["ChitDetails"];
         this.chitTerm = chitdata["ChitTermGroupList"];
 
         this.chitUserList = chitdata["ChitUserDetails"];
         this.connectionStatus=chitdata["ConnectionDetails"];
-        debugger;
+        this.TotalAcceptedInvite=chitdata["TotalAcceptedInvites"];
+       
         if(this.connectionStatus.organiser==1)
         {
           this.IsOrganiser = true;
@@ -68,7 +70,7 @@ export class ServiceDescriptionComponent implements OnInit {
 
         //To Get Current Chit Term Group
         this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current');
-        debugger;
+      
         //If Chit is Not Started
         if (this.chitTerm[0].DiffDate!="Future") {
           debugger
@@ -129,6 +131,9 @@ export class ServiceDescriptionComponent implements OnInit {
       }
     }
     )
+  }
+  NavigateToDashboard(){
+    this.routerPage.navigate(['/Home/Dashboard']);
   }
   ChangeTenure(termgroupid) {
     debugger;

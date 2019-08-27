@@ -13,7 +13,7 @@ export class UserProfileService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    return this.http.post("http://edpicker.in/api/User/UpdateProfile",
+    return this.http.post("http://localhost:60317/api/User/UpdateProfile",
     UpdateProfile,
       httpOptions
       );
@@ -22,6 +22,6 @@ export class UserProfileService {
   GetProfile(userid):Observable<any>
   {
     debugger;
-    return this.http.get("http://edpicker.in/api/User/getProfileDetails",{params:{"userid":userid}})
+    return this.http.get("http://localhost:60317/api/User/getProfileDetails",{params:{"userid":userid}})
   }
 }

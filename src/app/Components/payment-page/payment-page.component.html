@@ -1,17 +1,120 @@
-<div style="margin-top: 70px">
+<!-- <div style="margin-top: 70px">
 
     CHIT ID :{{ChitId}}
     Term Group ID :{{TermGroupId}}
-</div>
+</div> -->
 <form (ngSubmit)="onSubmitTransaction(transactionform)">
-    <input name="UserId" class="form-control" [(ngModel)]="transactionform.UserId"  readonly />
-    <input name="ChitId" class="form-control"[(ngModel)]="transactionform.ChitId"  readonly/>
-    <input name="TermGroupId" class="form-control"[(ngModel)]="transactionform.TermGroupId"  readonly/>
-    <select name="ModeOfPayment" class="form-control"[(ngModel)]="transactionform.ModeOfPayment">
-        <option value="1">Cash</option>
-        <option value="2">Card</option>
-        <option value="3">UPI</option>
-    </select>
-    <input type="number" class="form-control" name="Amount" [(ngModel)]="transactionform.Amount" readonly />
-    <button type="submit">Pay Amount</button>
+    <div class="row justify-content-center" style="margin-top: 70px">
+        <div class="col-md-10">
+            <div class="row" style="background-color: #464159;
+            color: whitesmoke;
+            padding: 5px;">
+                <h4>Total Amount to Paid for Term {{chitdata.termnumber}} is {{chitdata.EMIAmount}} </h4>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Chit Id is
+                </div>
+                <div class="col-md-8">
+                    {{ChitId}}
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Term Group ID is
+                </div>
+                <div class="col-md-8">
+                    {{TermGroupId}}
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    User Id is
+                </div>
+                <div class="col-md-8">
+                    {{transactionform.UserId}}
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Mode of Payment
+                </div>
+                <div class="col-md-8">
+                    <select name="ModeOfPayment" class="form-control" [(ngModel)]="transactionform.ModeOfPayment">
+                        <option value="1">Cash</option>
+                        <option value="2">Card</option>
+                        <option value="3">UPI</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Mode of Payment
+                </div>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" name="Amount" [(ngModel)]="transactionform.Amount"
+                        readonly />
+                </div>
+            </div>
+            
+
+
+            <button type="submit">Pay Amount</button>
+        </div>
+        <div class="col-md-10">
+            <div class="UPI" *ngIf="transactionform.ModeOfPayment==3">
+                <div class='card' style="padding:5px;margin-top:30px">
+                    <span style="display:block;margin-bottom:10px;margin-top:10px;font-weight:bold">Enter
+                        your Virtual Payment Address(VPA)</span>
+                    <input type="textbox" placeholder="Enter UPI ID" style="padding:10px 5px" />
+                    <span style="display:block;margin-bottom:10px;margin-top:10px">VPA is a unique payment
+                        address that can be linked to a person bank accounts to make payments</span>
+                    <div style="text-align:right">
+                        <button type="button" class="btn btn-default">Cancel</button>
+                        <button type="button" class="btn btn-success">Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="CreditCard" *ngIf="transactionform.ModeOfPayment==2">
+                <div class='card' style=" padding:15px; margin-top:30px">
+
+                    <div style=" margin-top:30px">
+                        <h5 style="text-align:center; margin-bottom:20px; font-weight:bold">Credit Card
+                            Information</h5>
+                        <div class="form-group">
+                            <label for="usr">Name:</label>
+                            <input type="text" class="form-control" id="usr" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr">Card Number:</label>
+                            <input type="text" class="form-control" id="usr" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="ex1">Expiry</label>
+                                <input class="form-control" id="ex1" type="text" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="ex1">CVV</label>
+                                <input class="form-control" id="ex1" type="text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align:right; margin-top:20px">
+                        <button type="button" class="btn btn-default">Cancel</button>
+
+                        <button type="button" class="btn btn-success">Pay</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </form>

@@ -8,7 +8,7 @@ export class CreateChitService {
 
   constructor(private http: HttpClient) { }
   GetTempDates(TotalDuration, DurationGap, StartDate) {
-    return this.http.get("http://edpicker.in/api/ChitDescription/GetTempDateTime", { params: { "TotalDuration": TotalDuration, "DurationGap": DurationGap, "StartDate": StartDate } });
+    return this.http.get("http://localhost:60317/api/ChitDescription/GetTempDateTime", { params: { "TotalDuration": TotalDuration, "DurationGap": DurationGap, "StartDate": StartDate } });
   }
   CreateChit(_NewCreateChitJson): Observable<any> {
     debugger;
@@ -26,7 +26,7 @@ export class CreateChitService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
 
-    return this.http.post("http://edpicker.in/api/CreateChit/CreateNewChit",
+    return this.http.post("http://localhost:60317/api/CreateChit/CreateNewChit",
       _NewCreateChitJson,
       httpOptions
     );

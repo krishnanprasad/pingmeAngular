@@ -11,11 +11,11 @@ export class LoginService {
 
   }
   checkCredentials(PhoneNumber) {
-  return this.http.get("http://edpicker.in/api/Login/GetOTP",{params:{"PhoneNumber":PhoneNumber}});
+  return this.http.get("http://localhost:60317/api/Login/GetOTP",{params:{"PhoneNumber":PhoneNumber}});
   }
 
   verifyUser(PhoneNumber,OTP) {
-    return this.http.get("http://edpicker.in/api/Login/VerifyOTP",{params:{"PhoneNumber":PhoneNumber,"OTP":OTP}});
+    return this.http.get("http://localhost:60317/api/Login/VerifyOTP",{params:{"PhoneNumber":PhoneNumber,"OTP":OTP}});
     }
   handleError(err) {
     return throwError('Something Problem');

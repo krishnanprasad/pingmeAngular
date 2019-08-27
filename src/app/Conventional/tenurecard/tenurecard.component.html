@@ -6,7 +6,7 @@
         </div>
         <div class="flex-grow-1" style=" padding: 5px 10px ">
           <h6 style=" text-align: left;color: #868686 ">Start Date</h6>
-          <span style=" text-align: left ">{{TenureDetails.startdate| date : 'mediumDate'}}</span>
+          <span style=" text-align: left ">{{tenureDetails.startdate| date : 'mediumDate'}}</span>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
 
         <div class="flex-grow-1" style=" padding: 5px 10px ">
           <h6 style=" text-align: left; color: #868686 ">End Date</h6>
-          <span style=" text-align: left ">{{TenureDetails.enddate| date : 'mediumDate'}}</span>
+          <span style=" text-align: left ">{{tenureDetails.enddate| date : 'mediumDate'}}</span>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="flex-grow-1" style=" padding: 5px 10px ">
           <h6 style=" text-align: left; color: #868686 ">Loan</h6>
           <span style="text-align: left">
-            <span>{{TenureDetails.bidamount}}</span>
+            <span>{{tenureDetails.bidamount}}</span>
             <input type="button" *ngIf="IsChitStarted" class="btn btn-success" value="Take Loan" />
           </span>
         </div>
@@ -37,13 +37,12 @@
     </div>
     <div class="col-md-3">
       <div class="d-flex" style=" display: block ">
-        <div style=" padding: 5px ">
-
+        <div style="padding:5px">
         </div>
 
         <div class="flex-grow-1" style=" padding: 5px 10px ">
           <h6 style=" text-align: left; color: #999a9a ">EMI</h6>
-          <h3 class="SecondBlack" style=" text-align: left ">{{chitDetails.emi}}</h3>
+          <h3 class="SecondBlack" style=" text-align: left ">{{tenureDetails.EMIAmount}}</h3>
           <input type="button" readonly="IsChitStarted" *ngIf="!IsChitStarted" class="btn btn-success" (click)="PayEMI()"
             value="Pay EMI" />
         </div>

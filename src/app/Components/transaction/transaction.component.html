@@ -1,11 +1,12 @@
 <div class="row justify-content-center" style="margin-top:70px">
- 
+
   <div class="col-lg-10" style="background-color:white">
-      <h6 style="margin-bottom: 20px">Your Transaction</h6>
+    <h6 style="margin-bottom: 20px">Your Transaction</h6>
     <table class="table">
       <thead>
         <tr>
-          <th>Service Provider</th>
+          <th>You</th>
+          <th>Chit</th>
           <th>Amount</th>
           <th>Date</th>
           <th>Through</th>
@@ -15,12 +16,14 @@
       <tbody>
         <tr *ngFor="let usage of transactionList">
           <td><img src="../../../assets/Image/Common/user1.jpg"
-              style="width:32px; height:32px; border-radius:50%" /><span
-              style=" padding-left:10px">You {{username}}</span></td>
+              style="width:32px; height:32px; border-radius:50%" /><span style=" padding-left:10px">You
+              <!-- {{username}} -->
+            </span></td>
+          <td>{{usage.chitname}}</td>
           <td>{{usage.amount}}</td>
           <td>{{usage.createddate| date : 'mediumDate'}}</td>
           <td>{{usage.paymentmodename}}</td>
-          <td>{{usage.paidstatusname}}</td>
+          <td>{{usage.paymentstatusname}}</td>
           <td>
             <button type=" button" class="btn">View</button>
           </td>

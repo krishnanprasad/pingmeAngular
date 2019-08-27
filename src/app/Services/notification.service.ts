@@ -10,13 +10,13 @@ export class NotificationService {
 
   }
   GetInvitationList(UserId) {
-  return this.http.get("http://edpicker.in/api/User/GetUserChitInvitaion",{params:{"UserId":UserId}});
+  return this.http.get("http://localhost:60317/api/User/GetUserChitInvitaion",{params:{"UserId":UserId}});
   }
   UpdateInvitation(UpdateInvitation) {
     debugger;
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})    }
-    return this.http.post("http://edpicker.in/api/User/UpdateChitInvitaion",UpdateInvitation,httpOptions);
+    return this.http.post("http://localhost:60317/api/User/UpdateChitInvitaion",UpdateInvitation,httpOptions);
     }
   handleError(err) {
     return throwError('Something Problem');
