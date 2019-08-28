@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  IsSpinner:boolean=false;
+  IsSpinner: boolean = false;
   userData = {};
-  constructor(private _loginservice: LoginService,private router: Router) { }
+  constructor(private _loginservice: LoginService, private router: Router) { }
   PhoneNumber: any;
   Password: any;
   Iserror: boolean = false;
@@ -18,27 +18,35 @@ export class LoginPageComponent implements OnInit {
 
   }
   CheckUserCredetials() {
-    this.IsSpinner=true;
-    console.log('PhoneNumber' + this.PhoneNumber);
-    
-    this._loginservice.checkCredentials(this.PhoneNumber).subscribe(data => {
-      if (data != "No User") {
-        console.log(data);
-        //this.userData = data;
-        this.IsSpinner=false;
-        this.router.navigate(['VerifyOTP/'+data+'/PhoneNumber/'+this.PhoneNumber])
-        this.Iserror = false;
-      }
-      else {
-        
-        this.Iserror = true;
-        this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
-      }
+    debugger;
+    if (this.PhoneNumber.length == 10) {
+      this.IsSpinner = true;
+      console.log('PhoneNumber' + this.PhoneNumber);
 
-    }, (err) => {
-      this.errorMessage = "There are some issue";
-    });
+      this._loginservice.checkCredentials(this.PhoneNumber).subscribe(data => {
+        if (data != "No User") {
+          console.log(data);
+          //this.userData = data;
+          this.IsSpinner = false;
+          this.router.navigate(['VerifyOTP/' + data + '/PhoneNumber/' + this.PhoneNumber])
+          this.Iserror = false;
+        }
+        else {
+          this.IsSpinner = false;
+          this.Iserror = true;
+          this.errorMessage = "Welcome New User";
+          console.log('Password' + this.errorMessage);
+        }
+
+      }, (err) => {
+        debugger;
+        this.IsSpinner = false;
+        alert('Something Error' + err);
+        this.errorMessage = "There are some issue";
+      });
+    }
+    else {
+      alert('Phone Number should be 10 digit');
+    }
   }
-
 }

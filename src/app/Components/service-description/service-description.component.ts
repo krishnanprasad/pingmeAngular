@@ -27,7 +27,7 @@ export class ServiceDescriptionComponent implements OnInit {
   termgroupNumber: any;
   userList: any;
   Hello: { "Name": string; }[];
-  IsOrganiser: boolean=false;
+  IsOrganiser: boolean = false;
   CurrentTab: number = 1;
   IsChitStarted: Boolean = false;
   tenureTimeTable: any;
@@ -54,26 +54,25 @@ export class ServiceDescriptionComponent implements OnInit {
 
     this._ServiceDescription.getChitDetails(this.chitid, this.userid).subscribe(chitdata => {
       if (chitdata != "No User") {
-       
+
         this.chitDetails = chitdata["ChitDetails"];
         this.chitTerm = chitdata["ChitTermGroupList"];
 
         this.chitUserList = chitdata["ChitUserDetails"];
-        this.connectionStatus=chitdata["ConnectionDetails"];
-        this.TotalAcceptedInvite=chitdata["TotalAcceptedInvites"];
-       
-        if(this.connectionStatus.organiser==1)
-        {
+        this.connectionStatus = chitdata["ConnectionDetails"];
+        this.TotalAcceptedInvite = chitdata["TotalAcceptedInvites"];
+
+        if (this.connectionStatus.organiser == 1) {
           this.IsOrganiser = true;
         }
         debugger;
 
         //To Get Current Chit Term Group
         this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current');
-      
+
         //If Chit is Not Started
-        if (this.chitTerm[0].DiffDate!="Future") {
-          debugger
+        if (this.chitTerm.status == 1) {
+          debugger;
           this.termgroupid = this.chitTerm[0].termgroupid;
           this.IsChitStarted = true;
         }
@@ -86,10 +85,10 @@ export class ServiceDescriptionComponent implements OnInit {
 
         this._ServiceDescription.getTenureDetails(this.userid, this.chitid, this.termgroupid).subscribe(chitdata => {
           if (chitdata != "No User") {
-           
+
             this.tenureBidList = chitdata["TermGroupBidList"];
             this.tenureTransactionList = chitdata["TenureTransactionList"];
-          
+
             this.tenureDetails = chitdata["TransactionChitTermDetails"];
             this.IsBidDoneForCurrentTerm = chitdata["IsBidDoneForCurrentTerms"];
             debugger;
@@ -132,7 +131,7 @@ export class ServiceDescriptionComponent implements OnInit {
     }
     )
   }
-  NavigateToDashboard(){
+  NavigateToDashboard() {
     this.routerPage.navigate(['/Home/Dashboard']);
   }
   ChangeTenure(termgroupid) {
@@ -178,9 +177,9 @@ export class ServiceDescriptionComponent implements OnInit {
 
   SwitchTab(Tab) {
     this.CurrentTab = Tab;
-  
+
   }
-  getChitTimeTable(){
-    
+  getChitTimeTable() {
+
   }
 }

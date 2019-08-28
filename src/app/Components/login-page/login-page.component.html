@@ -1,9 +1,4 @@
-<div *ngIf="!IsSpinner">
-  <!-- <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber" placeholder="Enter User Name" />
 
-  <input type="button" class="btn btn-success" (click)="CheckUserCredetials()" value="Click Me to Get User Date" />
-  <p>{{userData.username}}</p> -->
-</div>
 <div class="overlay" *ngIf="IsSpinner">
   <div class="loader"></div>
 </div>
@@ -30,11 +25,15 @@
 
       </div>
       <div class="col-md-5" style=" margin-top:auto; margin-bottom:auto;">
-        <div style=" background-color:#524b6b; padding:40px 20px; height:280px; width:95%">
+        <div style=" background-color:#524b6b; padding:40px 20px; height:280px; width:100%">
           <div class="form-group">
-            <p class="" style="font-size: 20px;color:whitesmoke">Please Enter Phone Number</p>
+            <p class="" style="font-size: 20px;color:whitesmoke">Please Enter 10 Digit Phone Number</p>
             <input type="text" class="form-control" name="Phonenumber" [(ngModel)]="PhoneNumber"
               placeholder="Enter Phone Number" />
+
+            <span style="color:red" *ngIf="PhoneNumber?.length > 10">
+             *Phone Number cannot be more than 10 numbers
+            </span>
           </div>
           <input type="button" class="btn" style=" background-color:#524b6b; color:white;border: 1px solid white"
             (click)="CheckUserCredetials()" value="Get into Chittie" />
@@ -89,8 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="row"
-      style="margin-top:0px; background-color:#464159; height:120px">
+    <div class="row" style="margin-top:0px; background-color:#464159; height:120px">
       <div class="col-md-12" style="margin-top:auto; margin-bottom:auto">
         <div class="row">
           <div class="col-md-3" style=" text-align:center">
