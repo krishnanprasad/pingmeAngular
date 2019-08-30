@@ -1,12 +1,16 @@
 <div class="row justify-content-center" style="margin-top: 70px ">
   <div class="col-lg-10">
     <div class="d-flex "
-      style="background-color: white; margin-top: 20px; font-size: 18px; border-top: 3px solid #de5555 ">
+      style="margin-top: 20px">
       <div style="margin-right:20px" class="">
-        <span (click)="ChangeTab(1)" style="cursor: pointer ">Feed</span>
+        <span (click)="ChangeTab(1)" 
+        [ngClass]="CurrentTab==1?'activetab':'nonactivetab'"
+        style="cursor: pointer ">Feed</span>
       </div>
       <div style=" margin-right: 20px " class="">
-        <span (click)="ChangeTab(2)" style="cursor: pointer ">Invitation</span>
+        <span (click)="ChangeTab(2)" 
+        [ngClass]="CurrentTab==2?'activetab':'nonactivetab'"
+        style="cursor: pointer ">Invitation</span>
       </div>
 
     </div>

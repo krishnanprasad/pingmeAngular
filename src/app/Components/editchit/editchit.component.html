@@ -1,0 +1,127 @@
+
+<div class="overlay" *ngIf="IsSpinner">
+  <div class="loader"></div>
+</div>
+
+<div class="row justify-content-center" style="margin-top: 70px">
+  <div class="col-md-10">
+    <div class="row RowBottom">
+      <div class="col-md-3">
+        <label for="chitname">ChitName</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="chitname" placeholder="Enter Chit Name" [(ngModel)]="EditCreateChit.chitname">
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.chitname!=EditCreateChit.chitname">Old:{{EditCreateChitOrginal.chitname}}
+        </span>
+      </div>
+    </div>
+    <div class="row RowBottom">
+      <div class="col-md-3">
+        <label for="chitemi">Chit EMI</label>
+      </div>
+      <div class="col-md-9">
+        <input type="number" id="chitemi" class="form-control" placeholder="Enter Chit EMI"
+          [(ngModel)]="EditCreateChit.emi" (ngModelChange)="changeGrandValue()">
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.emi!=EditCreateChit.emi">Old:{{EditCreateChitOrginal.emi}}
+        </span>
+      </div>
+    </div>
+    <div class="row RowBottom">
+      <div class="col-md-3">
+        <label for="chittenure">Total Tenure</label>
+      </div>
+      <div class="col-md-9">
+        <input type="number" id="chittenure" class="form-control" placeholder="Enter Total Chit Period"
+          [(ngModel)]="EditCreateChit.tenure" (ngModelChange)="ChangedValuesInTenure($event)">
+
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.tenure!=EditCreateChit.tenure">Old:{{EditCreateChitOrginal.tenure}}
+        </span>
+      </div>
+    </div>
+    <div class="row RowBottom">
+      <div class="col-md-3">
+        <label for="chitmembers">Chit Members</label>
+      </div>
+      <div class="col-md-9">
+        <input type="number" id="chitmembers" class="form-control" placeholder="Total Members"
+          [(ngModel)]="EditCreateChit.membercount">
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.membercount!=EditCreateChit.membercount">Old:{{EditCreateChitOrginal.membercount}}
+        </span>
+      </div>
+    </div>
+
+
+    <div class="row RowBottom">
+      <div class="col-md-3">
+        <label>Gap Between Chits</label>
+      </div>
+      <div class="col-md-9">
+        <select class="form-control" (ngModelChange)="ChangedValuesInDuration($event)" [(ngModel)]="EditCreateChit.DurationGap">
+          <option value="7">7 Days</option>
+          <option value="15">15 Days</option>
+          <option value="30">30 Days</option>
+          <option value="2">2 Days</option>
+        </select>
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.DurationGap!=EditCreateChit.DurationGap">Old:{{EditCreateChitOrginal.DurationGap}}</span>
+      </div>
+    </div>
+    <div class="row RowBottom">
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-9">
+        <mat-form-field>
+          <input [(ngModel)]="EditCreateChit.startdate" (ngModelChange)="ChangedValuesInStartDate($event)" [min]="today" matInput [matDatepicker]="startdatecalendar"
+            placeholder="Choose a Start date">
+          <mat-datepicker-toggle matSuffix [for]="startdatecalendar"></mat-datepicker-toggle>
+          <mat-datepicker #startdatecalendar></mat-datepicker>
+        </mat-form-field><br />
+        <span class="valuechangedmessage"
+          *ngIf="EditCreateChitOrginal.startdate!=EditCreateChit.startdate">Old:{{EditCreateChitOrginal.startdate | date:'medium'}}</span>
+      </div>
+    </div>
+    <div class="row RowBottom">
+
+      <label for="chitamount">Your Total Amount is : {{EditCreateChit.amount}}</label>
+      <label for="newamount">Your New Amount is : <span style="color:blueviolet;font-size:18px;font-weight:bold">
+          {{EditCreateChit.emi*EditCreateChit.tenure}}</span></label>
+
+    </div>
+    <button class="BaseBorderColor BaseFontColor btn" *ngIf="16>EditCreateChit.tenure"
+      (click)="GenerateTempCalendar()">Generate
+      Calendar</button>
+  </div>
+  <!-- <div class="col-md-3">
+      <button class="BaseBorderColor BaseFontColor btn" *ngIf="16>chitduration"
+        (click)="GenerateTempCalendar()">Generate Calendar</button>
+    </div> -->
+
+  <div class="row justify-content-center" style="margin-top: 70px">
+   
+      <table class="table">
+        <tr>
+          <td>Term Number</td>
+          <td>Start Date</td>
+          <td>End Date</td>
+          <td>Bid Value</td>
+        </tr>
+        <tr *ngFor="let temp of TempDates; let i=index">
+          <td>{{i}}</td>
+          <td>{{temp.StartDate | date:'medium'}}</td>
+          <td>{{temp.EndDate | date:'medium'}}</td>
+          <td><input type="number" class="form-control" name="{{i}}" placeholder="Bid Value" value="1000"
+              (ngModelChange)="changeValueofArray(i,$event)" [(ngModel)]="bidValue[i].BidAmount" />
+            <span *ngIf="bidValue[i].BidAmount>=(totalValue+1)">Cannot be more than Total Value</span>
+          </td>
+          <!-- <td><input type="number" class="form-control" name="{{i}}" placeholder="Bid Value" [value]="1000" (ngModel)="changeValueofArray(i,$event)" /> </td> -->
+          <!-- <td> <button mat-button (click)="EditBid()">Generate Calendar</button></td> -->
+        </tr>
+      </table>
+    </div>
+ 
+</div>

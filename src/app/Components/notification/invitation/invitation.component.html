@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4" *ngFor="let InvitationList of invitationlist">
+    <div class="col-md-4" (click)="GoToChit(InvitationList.chitid)" *ngFor="let InvitationList of invitationlist">
         <div class="d-flex card ACard flex-column">
             <div class="d-flex ">
                 <div class="p-2 pl-20" style="margin-bottom:auto;margin-top:auto ">
@@ -42,5 +42,8 @@
 
 
 
+    </div>
+    <div *ngIf="invitationlist?.length==0">
+        <span>There is no Chit invitation for you !</span>
     </div>
 </div>

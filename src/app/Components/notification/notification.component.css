@@ -1,0 +1,16 @@
+.activetab {
+    background-color: #464159 !important;
+    padding: 13px 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: white !important;
+    border: 1px solid #464159 !important;
+}
+
+.nonactivetab {
+    border: 1px solid #464159 !important;
+    text-align: center;
+    padding: 13px 30px;
+    border-radius: 5px;
+    color: #464159 !important;
+}

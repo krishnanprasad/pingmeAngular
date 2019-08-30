@@ -13,6 +13,7 @@ import { PaymentPageComponent } from './Components/payment-page/payment-page.com
 import { DummyPageComponent } from './Components/dummy-page/dummy-page.component';
 import { CreateChitComponent } from './Components/create-chit/create-chit.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { EditchitComponent } from './Components/editchit/editchit.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path: 'ServiceDetails/:chitid',
         component: ServiceDescriptionComponent
+      } ,
+      {
+        path: 'EditChit/:chitid',
+        component: EditchitComponent
       } ,
       {
         path: 'Payment/:chitid/:termgroupid',

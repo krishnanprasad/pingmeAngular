@@ -13,5 +13,6 @@ export interface CreateChitPost {
     TotalMembers: number,
     StartDate: Date,
     UserFinalChitDateTime: Array<ChitTimeTable>,
-    UserBidDateTime: Array<BidTable>
+    UserBidDateTime: Array<BidTable>,
+    DurationGap:number
 }

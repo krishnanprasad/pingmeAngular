@@ -4,14 +4,20 @@
     <button type="button" class="btn" (click)="NavigateToDashboard()">back</button>
 
 
-    <div class="d-flex" style=" margin-top: 20px ">
+    <div class="d-flex" style=" margin-top: 20px;margin-bottom: 20px ">
       <div class="p-2 mr-auto">
         <h3 style=" display: inline-block ">{{chitDetails.chitname}}</h3>
-        <span style=" margin-left: 10px" class=" Raised">Closed
-          Circle</span>
-        <input type="button" *ngIf="this.connectionStatus.statusid==0" class="btn BaseBorderColor BaseFontColor"
-          value="Accepted" />
-        <input type="button" *ngIf="this.connectionStatus.statusid==0" class="btn btn-danger" value="Reject" />
+        <span style=" margin-left: 10px" class="Raised">{{chitDetails.chitid}}</span>
+        
+      </div>
+      <div>
+        <input type="button" *ngIf="connectionStatus.statusid==0" class="btn btn-success"
+          value="Accepted"  style="margin-left:10px"
+          (click)="UpdateInvitation(connectionStatus.connectionid,1)"
+          />
+        <input type="button" *ngIf="connectionStatus.statusid==0" class="btn btn-danger" value="Reject"
+        (click)="UpdateInvitation(connectionStatus.connectionid,3)" style="margin-left:10px"
+        />
       </div>
       <!-- <div class="p-2">
         <input type="button" class="btn btn-primary" (click)="open()" value="Term Chart" style="margin-left:10px">
@@ -41,7 +47,7 @@
 
               <div class="flex-grow-1" style=" padding: 5px 10px ">
                 <h6 style=" text-align: left;color: #868686 ">CHIT AMOUNT</h6>
-                <h3 style=" text-align: left ">{{chitDetails.amount}}</h3>
+                <h3 class="SecondBlack" style=" text-align: left;">{{chitDetails.amount}}</h3>
                 <span style=" text-align: left "> tenure * emi</span>
               </div>
             </div>
@@ -59,7 +65,7 @@
 
               <div class="flex-grow-1" style=" padding: 5px 10px ">
                 <h6 style=" text-align: left; color: #868686 ">EMI</h6>
-                <h3 style=" text-align: left ">{{chitDetails.emi}}</h3>
+                <h3 class="SecondBlack"  style=" text-align: left ">{{chitDetails.emi}}</h3>
                 <span style=" text-align: left ">-</span>
               </div>
             </div>
@@ -75,7 +81,7 @@
 
               <div class="flex-grow-1" style=" padding: 5px 10px ">
                 <h6 style=" text-align: left; color: #868686 ">Tenure</h6>
-                <h3 style=" text-align: left ">7</h3>
+                <h3 class="SecondBlack"  style=" text-align: left ">{{chitDetails.tenure}}</h3>
                 <span style=" text-align: left ">{{chitDetails.tenure}}</span>
               </div>
             </div>
@@ -131,11 +137,12 @@
                   <span [ngClass]="{
                   'text-completed':TermGroupList.DiffDate === 'Completed',
                   'text-current':TermGroupList.DiffDate === 'Current',
-                  'text-future':TermGroupList.DiffDate === 'Future'
+                  'text-future':TermGroupList.DiffDate === 'Future',
+                  'text-lastday':TermGroupList.DiffDate === 'Last Day'
                 }" style=" cursor: pointer; display: table-cell; vertical-align: middle; font-size: 22px ">#{{i+1}}
                   </span>
                   <span *ngIf="TermGroupList.DiffDate === 'Current'"
-                    style="font-size: 10px;font-weight: 600;color:green">Current</span>
+                    style="font-size: 10px;font-weight: 600;color:rgb(0, 231, 0)">Current</span>
                 </div>
                 <!-- <span class="LoanRaisedStatus">Loaned</span> -->
 
@@ -144,15 +151,17 @@
 
             </div>
           </div>
-          <tenure-card [IsBidDoneForCurrentTerm]="IsBidDoneForCurrentTerm" [tenureDetails]="tenureDetails"
-            [IsTransactionDone]="IsTransactionDone" [chitid]="chitid" [termgroupid]="termgroupid"></tenure-card>
+          <tenure-card 
+          [IsBidDoneForCurrentTerm]="IsBidDoneForCurrentTerm" 
+          [tenureDetails]="tenureDetails"
+          [IsTransactionDone]="IsTransactionDone" 
+          [chitid]="chitid" 
+          [termgroupid]="termgroupid"
+            ></tenure-card>
           <!-- Length of Array is {{IsTransactionDone.length}} -->
 
 
-          <div *ngIf="IsTransactionDone?.length>0">
-            <p>Current Term {{termgroupNumber}} - <span style="color: hotpink;font-weight: bold">You Paid</span> </p>
-            <p>Payment Paid on {{IsTransactionDone[0].Createddate | date : 'mediumDate' }}</p>
-          </div>
+ 
           <transaction-table-payment [transactiondetails]="tenureTransactionList"></transaction-table-payment>
           <div class="">
             <bid-table [bidlist]="tenureBidList"></bid-table>

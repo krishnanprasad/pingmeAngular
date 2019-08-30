@@ -1,6 +1,6 @@
 <div class="overlay" *ngIf="IsSpinner">
-    <div class="loader"></div>
-  </div>
+  <div class="loader"></div>
+</div>
 
 <div style="margin-top: 70px">
   <div class="col-md-10">
@@ -49,6 +49,7 @@
           <mat-option value="7">7 Days</mat-option>
           <mat-option value="15">15 Days</mat-option>
           <mat-option value="30">30 Days</mat-option>
+          <mat-option value="2">2 Days</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -59,28 +60,28 @@
       <label id="chitamount"></label>
     </div>
     <div class="col-md-3">
-      <button class="BaseBorderColor BaseFontColor btn"  *ngIf="16>chitduration" (click)="GenerateTempCalendar()">Generate Calendar</button>
+      <button class="BaseBorderColor BaseFontColor btn" *ngIf="16>chitduration"
+        (click)="GenerateTempCalendar()">Generate Calendar</button>
     </div>
-    <div class="col-md-3" *ngIf="IsChitCanBeCreated">
-      <button class="btn ctn-success" mat-button (click)="CreateChit()">Create Chit</button>
-    </div>
+
   </div>
   <table class="table">
     <tr>
       <td>Term Number</td>
       <td>Start Date</td>
       <td>End Date</td>
+      <td>Bid Value</td>
     </tr>
     <tr *ngFor="let temp of TempDates; let i=index">
       <td>{{temp.DurationID}}</td>
       <td>{{temp.StartDate}}</td>
       <td>{{temp.EndDate}}</td>
       <td><input type="number" class="form-control" name="{{i}}" placeholder="Bid Value" value="1000"
-          (ngModelChange)="changeValueofArray(i,$event)" [(ngModel)]="bidValue[i].BidAmount" /> 
+          (ngModelChange)="changeValueofArray(i,$event)" [(ngModel)]="bidValue[i].BidAmount" />
         <span *ngIf="bidValue[i].BidAmount>=(totalValue+1)">Cannot be more than Total Value</span>
-        </td>
+      </td>
       <!-- <td><input type="number" class="form-control" name="{{i}}" placeholder="Bid Value" [value]="1000" (ngModel)="changeValueofArray(i,$event)" /> </td> -->
-      <td> <button mat-button (click)="EditBid()">Generate Calendar</button></td>
+      <!-- <td> <button mat-button (click)="EditBid()">Generate Calendar</button></td> -->
     </tr>
   </table>
   <!-- <div class="row" *ngFor="let temp of TempDates; let i=index">
@@ -99,6 +100,8 @@
       </mat-form-field>
     </div>
   </div> -->
-
+  <div class="col-md-12" style="margin-top: 10px" *ngIf="IsChitCanBeCreated">
+    <button class="btn btn-success btn-block"(click)="CreateChit()">Create Chit</button>
+  </div>
 
 </div>

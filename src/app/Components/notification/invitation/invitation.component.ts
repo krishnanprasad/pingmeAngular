@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/Services/notification.service';
 import { UpdateInvitation } from 'src/app/Interface/update-invitation';
+import { Router } from '@angular/router';
 @Component({
   selector: 'invitation',
   templateUrl: './invitation.component.html',
@@ -13,7 +14,9 @@ export class InvitationComponent implements OnInit {
   userid: string;
   invitationlist: any;
   updateinv:UpdateInvitation={UserId:'',ConnectionId:'',StatusId:0};
-  constructor(private _notificationservice: NotificationService) { }
+  constructor(private _notificationservice: NotificationService,
+    private routerPage:Router
+    ) { }
 
   ngOnInit() {
     this.CurrentTab = 1;
@@ -71,5 +74,8 @@ export class InvitationComponent implements OnInit {
       )
      }
     }
+  }
+  GoToChit(chitid){
+    this.routerPage.navigate(['Home/ServiceDetails',chitid])
   }
 }

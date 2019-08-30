@@ -1,0 +1,9 @@
+.RowBottom{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.valuechangedmessage{
+    color:red;
+    font-size: 14px;
+}

@@ -42,4 +42,10 @@ export class ServiceDescriptionService {
   getChitTimeTable(ChitId){
     return this.http.get("http://localhost:60317/api/ChitDescription/GetTimeTable", { params: { "ChitId": ChitId } });
   }
+  getGetEditChitDetails(ChitId,UserId){
+    return this.http.get("http://localhost:60317/api/CreateChit/GetEditChitDetails", { params: { "ChitId": ChitId, "UserId": UserId } });
+  }
+  getEditChitDateTime(ChitId): Observable<any> {
+    return this.http.get("http://localhost:60317/api/ChitDescription/GetEditChitDateTime", { params: { "ChitId": ChitId } });
+  }
 }

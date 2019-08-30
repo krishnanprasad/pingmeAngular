@@ -84,7 +84,7 @@ export class ChitFriendListComponent implements OnInit {
   SendInvitation(UserId) {
     this.CreateInvitation.ChitId = this.route.snapshot.paramMap.get("chitid");
     this.CreateInvitation.UserId = UserId;
-   
+   debugger;
     this.SendInvitationJson = JSON.stringify(this.CreateInvitation)
     this._ServiceDescription.SendInvitation(this.SendInvitationJson).subscribe(ResponseData => {
       if (ResponseData != "No User") {

@@ -29,7 +29,6 @@ export class CreateChitComponent implements OnInit {
   chitmembers: any;
   createchitJson: any;
   NewCreateChit: CreateChitPost = {
-
     UserId: '',
     ChitName: '',
     ChitDuration: 0,
@@ -37,13 +36,14 @@ export class CreateChitComponent implements OnInit {
     TotalMembers: 0,
     StartDate: null,
     UserFinalChitDateTime: null,
-    UserBidDateTime: null
+    UserBidDateTime: null,
+    DurationGap: 1,
   };
-  IsChitCanBeCreated: boolean=false;
-  IsSpinner: boolean=false;
+  IsChitCanBeCreated: boolean = false;
+  IsSpinner: boolean = false;
   //ChitId: any;
   constructor(private _CreateChitService: CreateChitService,
-     private RouterPage: Router ) { }
+    private RouterPage: Router) { }
 
 
   changeValueofArray(id, value) {
@@ -69,7 +69,7 @@ export class CreateChitComponent implements OnInit {
     console.log(this.bidValue);
   }
   GenerateTempCalendar() {
-    this.IsSpinner=true;
+    this.IsSpinner = true;
     debugger;
     this._CreateChitService.GetTempDates(this.chitduration, this.chitdurationgap, this.startdate.toDateString()).subscribe(data => {
       if (data != "No User") {
@@ -78,22 +78,22 @@ export class CreateChitComponent implements OnInit {
         this.isFirstItem = true;
         for (let i = 0; i < this.chitduration; i++) {
           if (this.isFirstItem == true) {
-            this.IsChitCanBeCreated=true;
+            this.IsChitCanBeCreated = true;
             debugger;
             this.bidValue.push({ DurationID: this.TempDates[i].DurationID, BidAmount: 0 });
             this.chittimetable.push({ DurationID: this.TempDates[i].DurationID, StartDate: this.TempDates[i].StartDate, EndDate: this.TempDates[i].EndDate });
             //this.tempbidValue[i] = 0;
             this.isFirstItem = false;
-            this.IsSpinner=false;
+            this.IsSpinner = false;
           }
           else {
-           
+
             debugger;
-            
+
             this.bidValue.push({ DurationID: this.TempDates[i].DurationID, BidAmount: this.totalValue });
             this.chittimetable.push({ DurationID: this.TempDates[i].DurationID, StartDate: this.TempDates[i].StartDate, EndDate: this.TempDates[i].EndDate });
             // this.tempbidValue[i] = this.totalValue;
-            this.IsSpinner=false;
+            this.IsSpinner = false;
           }
         }
         debugger;
@@ -112,7 +112,13 @@ export class CreateChitComponent implements OnInit {
   CreateChit() {
     debugger;
     console.log('UserId' + this.NewCreateChit);
-    this.NewCreateChit.UserId = 'U1-979-Kri';
+    if (this.UserId != undefined) {
+      this.NewCreateChit.UserId = this.UserId;
+    }
+    else {
+      this.NewCreateChit.UserId = 'U1-979-Kri';
+    }
+
     debugger;
 
     this.NewCreateChit.ChitName = this.chitname;
@@ -122,6 +128,7 @@ export class CreateChitComponent implements OnInit {
     this.NewCreateChit.StartDate = this.startdate;
     this.NewCreateChit.UserFinalChitDateTime = this.chittimetable;
     this.NewCreateChit.UserBidDateTime = this.bidValue;
+    this.NewCreateChit.DurationGap = this.chitdurationgap;
     debugger;
     this.createchitJson = JSON.stringify(this.NewCreateChit)
     this._CreateChitService.CreateChit(this.createchitJson).subscribe(data => {

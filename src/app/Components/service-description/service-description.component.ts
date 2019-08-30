@@ -4,6 +4,8 @@ import { ServiceDescriptionService } from 'src/app/Services/service-description.
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/Services/modal.service';
+import { UpdateInvitation } from 'src/app/Interface/update-invitation.js';
+import { NotificationService } from 'src/app/Services/notification.service.js';
 @Component({
   selector: 'app-service-description',
   templateUrl: './service-description.component.html',
@@ -36,11 +38,14 @@ export class ServiceDescriptionComponent implements OnInit {
   CurrentDate = new Date();
   IsBidDoneForCurrentTerm: any;
   TotalAcceptedInvite: any;
+  updateinv:UpdateInvitation={UserId:'',ConnectionId:'',StatusId:0};
+ 
   constructor(
     private _ServiceDescription: ServiceDescriptionService,
     private route: ActivatedRoute,
     private routerPage: Router,
     private modalService: ModalService,
+    private _notificationservice: NotificationService
   ) {
     route.params.subscribe(val => {
       this.ngOnInit()
@@ -65,16 +70,14 @@ export class ServiceDescriptionComponent implements OnInit {
         if (this.connectionStatus.organiser == 1) {
           this.IsOrganiser = true;
         }
-        debugger;
-
+      
         //To Get Current Chit Term Group
-        this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current');
-
+        debugger;
         //If Chit is Not Started
-        if (this.chitTerm.status == 1) {
+        if (this.chitDetails.status == 1) {
           debugger;
           this.termgroupid = this.chitTerm[0].termgroupid;
-          this.IsChitStarted = true;
+          this.IsChitStarted = false;
         }
         else {
           this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current')[0].termgroupid;
@@ -181,5 +184,51 @@ export class ServiceDescriptionComponent implements OnInit {
   }
   getChitTimeTable() {
 
+  }
+
+  UpdateInvitation(connectionid,statusId){
+    debugger;
+   if(statusId==1)
+   {
+    if(window.confirm('Are sure you want to Join this Chit ?')){
+      //put your delete method logic here
+      this.updateinv.StatusId=statusId;
+      this.updateinv.ConnectionId=connectionid;
+      this.updateinv.UserId=this.userid;
+      debugger;
+      this._notificationservice.UpdateInvitation(this.updateinv).subscribe(invitationlistResponse => {
+        if (invitationlistResponse != "No User") {
+          debugger;
+          alert('Successfully Joined Chit');
+          this.routerPage.navigate(['Home/ServiceDetails' + this.chitid])
+        }
+        else {
+          console.log('No DATA');
+        }
+      }
+      )
+     }
+    }
+    if(statusId==3)
+   {
+    if(window.confirm('Are sure you want to Reject the Chit?')){
+      //put your delete method logic here
+      this.updateinv.StatusId=statusId;
+      this.updateinv.ConnectionId=connectionid;
+      this.updateinv.UserId=this.userid;
+      debugger;
+      this._notificationservice.UpdateInvitation(this.updateinv).subscribe(invitationlistResponse => {
+        if (invitationlistResponse != "No User") {
+          debugger;
+          alert('Rejected the Chit');
+          this.routerPage.navigate(['Home/Dashboard'])
+        }
+        else {
+          console.log('No DATA');
+        }
+      }
+      )
+     }
+    }
   }
 }

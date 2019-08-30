@@ -1,19 +1,22 @@
 .Raised {
-    background-color: #de5555;
+    background-color: #464159;
     color: white;
     padding: 2px 10px;
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 10px;
     vertical-align: middle;
 }
 .text-completed{
-    color: red !important;
+    color: rgb(255, 38, 38) !important;
 }
 .text-current{
-    color: green !important;
+    color: rgb(0, 231, 0) !important;
 }
 .text-future{
     color: #464159 !important;
+}
+.text-lastday{
+    color: rgb(234, 0, 255) !important;
 }
 .activeTerm{
     background-color: #464159 !important;
