@@ -1,12 +1,12 @@
 <div class="ACard col-md-12">
-  <div class="row">
+  <div class="row" *ngIf="tenureDetails!=null">
     <div class="col-md-3">
       <div class="d-flex" style=" display: block ">
         <div style=" padding: 5px ">
         </div>
-        <div class="flex-grow-1" style=" padding: 5px 10px ">
+        <div class="flex-grow-1"  style=" padding: 5px 10px ">
           <h6 style=" text-align: left;color: #868686 ">Start Date</h6>
-          <span style=" text-align: left ">{{tenureDetails.startdate| date : 'mediumDate'}}</span>
+          <span *ngIf="tenureDetails.startdate!=undefined" style=" text-align: left ">{{tenureDetails.startdate| date : 'mediumDate'}}</span>
         </div>
       </div>
     </div>
@@ -30,7 +30,10 @@
           <h6 style=" text-align: left; color: #868686 ">Loan</h6>
           <span style="text-align: left">
             <span>{{tenureDetails.bidamount}}</span>
-            <input type="button" *ngIf="IsChitStarted" class="btn BaseBorderColor BaseFontColor" value="Take Loan" />
+            <input *ngIf="IsBidDoneByUser==null" type="button" class="btn BaseBorderColor BaseFontColor" value="Take Loan" />
+          </span>
+          <span *ngIf="IsBidDoneByUser!=null">
+            <span><span style="color: hotpink;font-weight: bold">Raised</span> loan of {{IsBidDoneByUser.amount}} on {{IsBidDoneByUser.createdDate | date:'medium'}}</span>
           </span>
         </div>
       </div>

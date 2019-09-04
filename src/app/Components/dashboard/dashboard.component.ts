@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from 'src/app/Services/login.service';
 import { DashboardService } from 'src/app/Services/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,19 +21,17 @@ export class DashboardComponent implements OnInit {
   Username: string;
   IsUpcomingChitNull: boolean=false;
   InvitedChitList: any;
-  constructor(private _dashboard: DashboardService, ) { }
+  constructor(private _dashboard: DashboardService,private router: Router ) { }
 
   ngOnInit() {
     this.Userid = sessionStorage.getItem("userid");
     this.Username= sessionStorage.getItem("username");
     debugger;
-    console.log("**--Userid--**" + this.Userid);
     this._dashboard.getDashboardDetails(this.Userid).subscribe(chitdata => {
    
       if (chitdata['length'] != 0) {
         debugger;
-        console.log("**--chitdata is Available--**");
-        console.log(chitdata);
+      
         this.TotalChits = chitdata["TotalChits"];
         this.TotalSavings = chitdata["TotalSavings"];
         this.TotalLoansAvailed = chitdata["TotalLoansAvailed"];
@@ -44,7 +43,7 @@ export class DashboardComponent implements OnInit {
         debugger;
         this.IsChitNull = true;
         this.errorMessage = "Welcome New User";
-        console.log('No Chit Found');
+     
       }
     }
     )
@@ -84,6 +83,7 @@ export class DashboardComponent implements OnInit {
         this.ChitDetailsList = chitdata["CurrentChitList"];
         this.UpComingChitDetailsList = chitdata["UpComingChitList"];
         this.InvitedChitList = chitdata["UserChitInvitationList"];
+        sessionStorage.setItem('notificationcount',chitdata['UserNotificationCount']);
         //localStorage.setItem('userid', data[0].userid);
         //this.userData = data;       
         this.Iserror = false;
@@ -93,9 +93,14 @@ export class DashboardComponent implements OnInit {
         this.IsChitNull = true;
         this.IsUpcomingChitNull = true;
         this.errorMessage = "Welcome New User";
-        console.log('No Chit Found');
+      
       }
     }
     )
+  }
+  NavigateToProfile(){
+    
+    this.router.navigate(['/Home/Profile']);
+   
   }
 }

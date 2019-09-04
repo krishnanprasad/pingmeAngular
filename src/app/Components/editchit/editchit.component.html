@@ -22,7 +22,7 @@
       </div>
       <div class="col-md-9">
         <input type="number" id="chitemi" class="form-control" placeholder="Enter Chit EMI"
-          [(ngModel)]="EditCreateChit.emi" (ngModelChange)="changeGrandValue()">
+          [(ngModel)]="EditCreateChit.emi">
         <span class="valuechangedmessage"
           *ngIf="EditCreateChitOrginal.emi!=EditCreateChit.emi">Old:{{EditCreateChitOrginal.emi}}
         </span>
@@ -76,7 +76,9 @@
       </div>
       <div class="col-md-9">
         <mat-form-field>
-          <input [(ngModel)]="EditCreateChit.startdate" (ngModelChange)="ChangedValuesInStartDate($event)" [min]="today" matInput [matDatepicker]="startdatecalendar"
+          <input [(ngModel)]="EditCreateChit.startdate"
+           (ngModelChange)="ChangedValuesInStartDate($event)" 
+           [min]="today" matInput [matDatepicker]="startdatecalendar"
             placeholder="Choose a Start date">
           <mat-datepicker-toggle matSuffix [for]="startdatecalendar"></mat-datepicker-toggle>
           <mat-datepicker #startdatecalendar></mat-datepicker>

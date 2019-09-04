@@ -34,9 +34,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
 
         let modal = this;
-        console.log('this.UserList');
-        console.log(this.UserList);
-
+ 
         // ensure id attribute exists
         if (!this.id) {
             console.error('modal must have an id');
@@ -87,7 +85,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         if (searchValue.length > 2) {
             console.log(searchValue);
             
-            this._ServiceDescription.SearchUserName(searchValue).subscribe(ResponseData => {
+            this._ServiceDescription.SearchChitInviteUserName(searchValue,this.ChitId).subscribe(ResponseData => {
                 if (ResponseData != "No User") {
                     this.NoResultsFound = false;
                     debugger;

@@ -37,7 +37,7 @@ export class OTPVerifyComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+     
       }
     }
     )

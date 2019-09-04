@@ -9,7 +9,8 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
 
-        <input routerLink="CreateChit" type="button" class="btn btn-block" style="color: whitesmoke !important;border:1px solid whitesmoke" value="Create Chit" />
+        <input routerLink="CreateChit" type="button" class="btn btn-block"
+          style="color: whitesmoke !important;border:1px solid whitesmoke" value="Create Chit" />
 
       </li>
       <li class="nav-item">
@@ -20,13 +21,16 @@
         <a routerLink="Transaction" class="nav-link" style="color: whitesmoke !important">Transaction</a>
       </li>
       <li class="nav-item">
-        <a routerLink="Notification" class="nav-link" style="color: whitesmoke !important">Notification</a>
+        <a routerLink="Notification" class="nav-link" style="color: whitesmoke !important">Notification
+          <span class="notificationalert" *ngIf="NotificationCount!=null">{{NotificationCount}}</span>
+          <span class="notificationalert" *ngIf="NotificationCount==null">0</span>
+        </a>
       </li>
       <li class="nav-item">
         <a routerLink="Profile" class="nav-link" style="color: whitesmoke !important">Profile</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/Login" class="nav-link" (click)="Logout()"  style="color: whitesmoke !important">Log Out</a>
+        <a routerLink="/Login" class="nav-link" (click)="Logout()" style="color: whitesmoke !important">Log Out</a>
       </li>
     </ul>
   </div>

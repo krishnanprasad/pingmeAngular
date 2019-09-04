@@ -36,6 +36,7 @@ export class EditchitComponent implements OnInit {
   chittimetable: Array<ChitTimeTable> = [];
   Iserror: boolean;
   errorMessage: string;
+  today: Date = new Date();
   EditCreatedChitJson: string;
   constructor(private _ServiceDescription: ServiceDescriptionService,
     private _CreateChitService: CreateChitService,
@@ -110,7 +111,7 @@ export class EditchitComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+       
       }
 
     }, (err) => {
@@ -141,7 +142,7 @@ export class EditchitComponent implements OnInit {
     this.EditCreatedChitJson = JSON.stringify(this.EditCreatedChit)
     this._CreateChitService.CreateChit(this.EditCreatedChitJson).subscribe(data => {
       if (data == "Success") {
-        console.log(data);
+       
         alert("Succesfully Chit Created");
         // this.RouterPage.navigate(['/Home/Dashboard'])
         this.TempDates = data;
@@ -153,7 +154,7 @@ export class EditchitComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+     
       }
 
     }, (err) => {
@@ -197,7 +198,7 @@ export class EditchitComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+     
       }
 
     }, (err) => {

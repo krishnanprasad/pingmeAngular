@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./chit-friend-list.component.css']
 })
 export class ChitFriendListComponent implements OnInit {
+  TestDate:any;
   @Input() id: string;
   private element: any;
   @Input() UserList: any;
@@ -35,10 +36,8 @@ export class ChitFriendListComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
-    console.log('Friend List' + this.IsOrganiser);
-    console.log('IsChitStarted' + this.IsChitStarted + '---IsOrganiser--'+this.IsOrganiser)
-    debugger;
+   debugger;
+   this.TestDate=this.IsChitStarted;
     this.ChitId = this.route.snapshot.paramMap.get("chitid");
     this._ServiceDescription.getInvitationList(this.ChitId).subscribe(ResponseData => {
       if (ResponseData != "No User") {
@@ -62,7 +61,7 @@ export class ChitFriendListComponent implements OnInit {
 
     if (searchValue.length > 2) {
     
-      this._ServiceDescription.SearchUserName(searchValue).subscribe(ResponseData => {
+      this._ServiceDescription.SearchChitInviteUserName(searchValue,this.ChitId).subscribe(ResponseData => {
         if (ResponseData != "No User") {
           this.NoResultsFound = false;
           debugger;

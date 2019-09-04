@@ -27,7 +27,7 @@ export class InvitationComponent implements OnInit {
         this.invitationlist = invitationlistResponse;
       }
       else {
-        console.log('No DATA');
+      
       }
     }
     )
@@ -48,7 +48,7 @@ export class InvitationComponent implements OnInit {
           alert('Successfully Joined Chit');
         }
         else {
-          console.log('No DATA');
+       
         }
       }
       )

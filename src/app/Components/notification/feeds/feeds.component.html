@@ -1,7 +1,7 @@
 <table class="table">
-  <tr *ngFor="let feed of feedlist">
-    <td>{{feed.Icon}}</td>
-    <td>{{feed.Message}}</td>
-    <td>{{feed.DateTime}}</td>
+  <tr *ngFor="let feed of NotificationMessage">
+ 
+    <td>{{feed.notificationmessage}}</td>
+    <td>{{feed.createddate | date:'medium'}}</td>
   </tr>
 </table>

@@ -25,8 +25,7 @@ export class LoginPageComponent implements OnInit {
 
       this._loginservice.checkCredentials(this.PhoneNumber).subscribe(data => {
         if (data != "No User") {
-          console.log(data);
-          //this.userData = data;
+         
           this.IsSpinner = false;
           this.router.navigate(['VerifyOTP/' + data + '/PhoneNumber/' + this.PhoneNumber])
           this.Iserror = false;
@@ -35,7 +34,7 @@ export class LoginPageComponent implements OnInit {
           this.IsSpinner = false;
           this.Iserror = true;
           this.errorMessage = "Welcome New User";
-          console.log('Password' + this.errorMessage);
+       
         }
 
       }, (err) => {

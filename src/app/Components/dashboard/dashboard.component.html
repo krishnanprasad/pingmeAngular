@@ -1,7 +1,8 @@
 <!-- <div style="margin-top: 70px"> -->
 <div class="row justify-content-center" style="margin-top: 70px">
   <div class="col-md-10" style="margin-bottom: 30px;float:left">
-    <h4>Welcome <span class="BaseFontColor">{{Username}} !</span></h4>
+    <span style="font-size: 25px;font-weight: 500">Welcome <span class="BaseFontColor">{{Username}} !</span></span>
+    <button type="button" *ngIf="Username=='null'" class="btn BaseBorderColor BaseFontColor" style="margin-left: 10px" (click)="NavigateToProfile()">Edit Name</button>
   </div>
 
   <div class="col-lg-10">
@@ -197,12 +198,12 @@
       <h6>Invited Chit</h6>
 
     </div>
-    <div class="row" *ngIf="!InvitedChitList">
+    <div class="row" *ngIf="InvitedChitList.length!=0">
       <div class="col-md-4" *ngFor="let invitedchitdetails of InvitedChitList">
         <chit-card [ServiceData]="invitedchitdetails"></chit-card>
       </div>
     </div>
-    <div *ngIf="InvitedChitList" style="margin-top: 10px;text-align:center">
+    <div *ngIf="InvitedChitList.length==0" style="margin-top: 10px;text-align:center">
       <h5 style="font-family:cursive">No Invite Chits Found</h5>
     </div>
 

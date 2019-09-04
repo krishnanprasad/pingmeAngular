@@ -12,16 +12,14 @@ export class TenurecardComponent implements OnInit {
   @Input() IsTransactionDone: any;
   @Input() chitid: string;
   @Input() termgroupid:string;
-
+  @Input() IsBidDoneByUser:any;
   constructor(
     private routerPage: Router,
   ) { }
 
   ngOnInit() {
-    debugger;
-    console.log('IsBidDoneForCurrentTerm' + this.IsBidDoneForCurrentTerm);
-    console.log('tenureDetails' + this.tenureDetails);
-    console.log('IsTransactionDone' + this.IsTransactionDone);
+   
+   
   }
   PayEMI() {
     this.routerPage.navigate(['/Home/Payment', this.chitid, this.termgroupid]);

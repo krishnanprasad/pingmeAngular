@@ -39,6 +39,7 @@ export class ServiceDescriptionComponent implements OnInit {
   IsBidDoneForCurrentTerm: any;
   TotalAcceptedInvite: any;
   updateinv:UpdateInvitation={UserId:'',ConnectionId:'',StatusId:0};
+  IsBidDoneByUser: any;
  
   constructor(
     private _ServiceDescription: ServiceDescriptionService,
@@ -80,6 +81,7 @@ export class ServiceDescriptionComponent implements OnInit {
           this.IsChitStarted = false;
         }
         else {
+          this.IsChitStarted = true;
           this.termgroupid = this.chitTerm.filter(x => x.DiffDate === 'Current')[0].termgroupid;
         }
 
@@ -96,15 +98,18 @@ export class ServiceDescriptionComponent implements OnInit {
             this.IsBidDoneForCurrentTerm = chitdata["IsBidDoneForCurrentTerms"];
             debugger;
             this.IsTransactionDone = chitdata["IsTransactionDoneForCurrentTerm"];
+            this.IsBidDoneByUser = chitdata["IsBidDoneByUser"];
             // if(this.IsTransactionDone.length!=00)
-            console.log(this.IsTransactionDone);
+            console.log('*******----this.tenureDetails-----********');
+            
+            console.log(this.tenureDetails);
             this.Iserror = false;
           }
           else {
 
             this.Iserror = true;
             this.errorMessage = "Welcome New User";
-            console.log('Password' + this.errorMessage);
+         
           }
         }
         )
@@ -113,7 +118,7 @@ export class ServiceDescriptionComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+     
       }
     }
     )
@@ -149,6 +154,7 @@ export class ServiceDescriptionComponent implements OnInit {
         this.tenureDetails = chitdata["TransactionChitTermDetails"];
         this.IsBidDoneForCurrentTerm = chitdata["IsBidDoneForCurrentTerms"];
         this.IsTransactionDone = chitdata["IsTransactionDoneForCurrentTerm"];
+        this.IsBidDoneByUser = chitdata["IsBidDoneByUser"];
         console.log(this.IsTransactionDone);
         debugger;
       }
@@ -162,6 +168,18 @@ export class ServiceDescriptionComponent implements OnInit {
       }
     }
     )
+  
+  
+  
+  
+    console.log('IsBidDoneForCurrentTerm -- SD' + this.IsBidDoneForCurrentTerm);
+    console.log(this.IsBidDoneForCurrentTerm);
+    console.log('tenureDetails -- SD' + this.tenureDetails);
+    console.log(this.tenureDetails);
+    console.log('IsTransactionDone -- SD');
+    console.log(this.IsTransactionDone);
+  
+  
   }
 
   PayEMI() {
@@ -200,7 +218,7 @@ export class ServiceDescriptionComponent implements OnInit {
         if (invitationlistResponse != "No User") {
           debugger;
           alert('Successfully Joined Chit');
-          this.routerPage.navigate(['Home/ServiceDetails' + this.chitid])
+          this.routerPage.navigate(['Home/Dashboard']);
         }
         else {
           console.log('No DATA');

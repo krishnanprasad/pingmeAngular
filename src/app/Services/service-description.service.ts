@@ -27,8 +27,8 @@ export class ServiceDescriptionService {
   getInvitationList(ChitId): Observable<any> {
     return this.http.get("http://localhost:60317/api/ChitDescription/GetInvitation", { params: { "ChitId": ChitId } });
   }
-  SearchUserName(SearchTerm): Observable<any> {
-    return this.http.get("http://localhost:60317/api/Common/GetUserSearch", { params: { "SearchTerm": SearchTerm } });
+  SearchChitInviteUserName(SearchTerm,ChitId): Observable<any> {
+    return this.http.get("http://localhost:60317/api/ChitDescription/SearchForChitInviteMember", { params: { "SearchTerm": SearchTerm , "ChitId": ChitId } });
   }
   SendInvitation(SendInvitation): Observable<any> {
     const httpOptions = {

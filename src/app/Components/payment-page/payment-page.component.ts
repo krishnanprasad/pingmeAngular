@@ -37,7 +37,7 @@ export class PaymentPageComponent implements OnInit {
 
           this.Iserror = true;
           this.errorMessage = "Welcome New User";
-          console.log('Password' + this.errorMessage);
+       
         }
       }
       )
@@ -61,7 +61,7 @@ export class PaymentPageComponent implements OnInit {
 
     //     this.Iserror = true;
     //     this.errorMessage = "Welcome New User";
-    //     console.log('Password' + this.errorMessage);
+    //  
     //   }
     // } 
     // )
@@ -78,11 +78,10 @@ export class PaymentPageComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+      
       }
     }
     )
-    console.log("Transaction Form")
-    console.log(this.transactionform);
+  
   }
 }

@@ -11,7 +11,7 @@ export class ChitCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.ServiceData);
+ 
   }
   public onNumberGenerated(randomNumber: number) {   
     this.randomNumber = randomNumber;  

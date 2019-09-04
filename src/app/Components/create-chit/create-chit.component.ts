@@ -66,14 +66,14 @@ export class CreateChitComponent implements OnInit {
   }
   EditBid() {
     debugger;
-    console.log(this.bidValue);
+   
   }
   GenerateTempCalendar() {
     this.IsSpinner = true;
     debugger;
     this._CreateChitService.GetTempDates(this.chitduration, this.chitdurationgap, this.startdate.toDateString()).subscribe(data => {
       if (data != "No User") {
-        console.log(data);
+      
         this.TempDates = data;
         this.isFirstItem = true;
         for (let i = 0; i < this.chitduration; i++) {
@@ -102,7 +102,7 @@ export class CreateChitComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+      //  console.log('Password' + this.errorMessage);
       }
 
     }, (err) => {
@@ -111,7 +111,7 @@ export class CreateChitComponent implements OnInit {
   }
   CreateChit() {
     debugger;
-    console.log('UserId' + this.NewCreateChit);
+  //  console.log('UserId' + this.NewCreateChit);
     if (this.UserId != undefined) {
       this.NewCreateChit.UserId = this.UserId;
     }
@@ -145,7 +145,7 @@ export class CreateChitComponent implements OnInit {
 
         this.Iserror = true;
         this.errorMessage = "Welcome New User";
-        console.log('Password' + this.errorMessage);
+     
       }
 
     }, (err) => {
