@@ -22,9 +22,9 @@ export class PaymentPageComponent implements OnInit {
 
   ngOnInit() {
 
-      this.UserId = sessionStorage.getItem('userid'),
-      this.ChitId = this.route.snapshot.paramMap.get("chitid"),
-      this.TermGroupId = this.route.snapshot.paramMap.get("termgroupid"),
+      this.UserId = sessionStorage.getItem('userid');
+      this.ChitId = this.route.snapshot.paramMap.get("chitid");
+      this.TermGroupId = this.route.snapshot.paramMap.get("termgroupid");
 
 
       this.__TransactionService.getEMIDetails(this.UserId, this.ChitId, this.TermGroupId).subscribe(chitdata => {

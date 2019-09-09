@@ -37,6 +37,9 @@ import { ChitFriendListComponent } from './Conventional/chit-friend-list/chit-fr
 import { ChitTimeTableComponent } from './Conventional/chit-time-table/chit-time-table.component';
 import { TenurecardComponent } from './Conventional/tenurecard/tenurecard.component';
 import { EditchitComponent } from './Components/editchit/editchit.component';
+import { ChitCardGoldComponent } from './Common/chit-card-gold/chit-card-gold.component';
+import { SearchChitComponent } from './Components/search-chit/search-chit.component';
+import { CreateLoanComponent } from './Components/create-loan/create-loan.component';
 //import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
@@ -68,6 +71,9 @@ import { EditchitComponent } from './Components/editchit/editchit.component';
     ChitTimeTableComponent,
     TenurecardComponent,
     EditchitComponent,
+    ChitCardGoldComponent,
+    SearchChitComponent,
+    CreateLoanComponent,
     
   ],
   imports: [

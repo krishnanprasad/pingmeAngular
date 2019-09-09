@@ -168,6 +168,7 @@
       <div class="col-md-4" *ngFor="let ChitDetails of ChitDetailsList">
 
         <chit-card [ServiceData]="ChitDetails"></chit-card>
+        <!-- <chit-card-gold [ServiceData]="ChitDetails"></chit-card-gold> -->
       </div>
     </div>
     <div *ngIf="IsChitNull" style="margin-top: 10px;text-align:center">
@@ -181,13 +182,13 @@
       <h6>Up Coming Chit Details</h6>
 
     </div>
-    <div class="row" *ngIf="!IsUpcomingChitNull">
+    <div class="row" *ngIf="UpComingChitDetailsList!=null">
       <div class="col-md-4" *ngFor="let upcomingchitdetails of UpComingChitDetailsList">
 
         <chit-card [ServiceData]="upcomingchitdetails"></chit-card>
       </div>
     </div>
-    <div *ngIf="IsUpcomingChitNull" style="margin-top: 10px;text-align:center">
+    <div *ngIf="UpComingChitDetailsList==null" style="margin-top: 10px;text-align:center">
       <h5 style="font-family:cursive">No Up Coming Chits Found</h5>
     </div>
 
@@ -198,12 +199,14 @@
       <h6>Invited Chit</h6>
 
     </div>
-    <div class="row" *ngIf="InvitedChitList.length!=0">
+    <div class="row" *ngIf="InvitedChitList!=null">
       <div class="col-md-4" *ngFor="let invitedchitdetails of InvitedChitList">
         <chit-card [ServiceData]="invitedchitdetails"></chit-card>
+        
+       
       </div>
     </div>
-    <div *ngIf="InvitedChitList.length==0" style="margin-top: 10px;text-align:center">
+    <div *ngIf="InvitedChitList==null" style="margin-top: 10px;text-align:center">
       <h5 style="font-family:cursive">No Invite Chits Found</h5>
     </div>
 

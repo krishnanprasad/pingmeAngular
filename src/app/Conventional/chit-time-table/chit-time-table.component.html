@@ -27,7 +27,7 @@
       <td>Bid Max Value</td>
     </tr>
     <tr *ngFor="let bidtable of chitTimeTable; let i = index">
-      <td>{{bidtable.i}}</td>
+      <td>{{i+1}}</td>
       <td>{{bidtable.startDate | date : 'mediumDate'}}</td>
       <td>{{bidtable.endDate  | date : 'mediumDate'}}</td>
       <td>{{bidtable.Amount}}</td>

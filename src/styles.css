@@ -108,3 +108,21 @@
   .SecondBlack{
       color:#464646;
   }
+
+  .AlertDiv{
+    text-align: center;
+    color: white;
+    background-color: #e26464;
+    padding: 10px;
+  }
+
+  .btn-basic {
+    color: #464159 !important;
+    background-color: white !important;;
+    border-color: #464159 !important;;
+  }
+
+  .btn2{
+    padding: .175rem .55rem !important;
+    font-weight: 300 !important;
+  }

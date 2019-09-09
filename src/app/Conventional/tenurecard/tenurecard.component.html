@@ -30,7 +30,7 @@
           <h6 style=" text-align: left; color: #868686 ">Loan</h6>
           <span style="text-align: left">
             <span>{{tenureDetails.bidamount}}</span>
-            <input *ngIf="IsBidDoneByUser==null" type="button" class="btn BaseBorderColor BaseFontColor" value="Take Loan" />
+            <input *ngIf="IsBidDoneByUser==null && IsChitStarted" type="button" class="btn BaseBorderColor BaseFontColor" (click)="TakeLoan()"  value="Take Loan" />
           </span>
           <span *ngIf="IsBidDoneByUser!=null">
             <span><span style="color: hotpink;font-weight: bold">Raised</span> loan of {{IsBidDoneByUser.amount}} on {{IsBidDoneByUser.createdDate | date:'medium'}}</span>
@@ -47,7 +47,7 @@
           <h6 style=" text-align: left; color: #999a9a ">EMI</h6>
           <div *ngIf="IsTransactionDone?.length==0">
             <h3 class="SecondBlack" style=" text-align: left;color:#464646">{{tenureDetails.EMIAmount}}</h3>
-            <input type="button" readonly="IsChitStarted" *ngIf="!IsChitStarted" class="btn BaseBorderColor BaseFontColor"
+            <input type="button" readonly="IsChitStarted" *ngIf="IsChitStarted" class="btn BaseBorderColor BaseFontColor"
               (click)="PayEMI()" value="Pay EMI" />
           </div>
           <div *ngIf="IsTransactionDone?.length==1">

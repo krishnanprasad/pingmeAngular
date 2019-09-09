@@ -14,6 +14,8 @@ import { DummyPageComponent } from './Components/dummy-page/dummy-page.component
 import { CreateChitComponent } from './Components/create-chit/create-chit.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { EditchitComponent } from './Components/editchit/editchit.component';
+import { SearchChitComponent } from './Components/search-chit/search-chit.component';
+import { CreateLoanComponent } from './Components/create-loan/create-loan.component';
 
 const routes: Routes = [
   {
@@ -61,6 +63,11 @@ const routes: Routes = [
         path: 'Payment/:chitid/:termgroupid',
         component: PaymentPageComponent
       },
+      
+      {
+        path: 'Loan/:chitid/:termgroupid',
+        component: CreateLoanComponent
+      },
       {
         path: 'Dummy',
         component: DummyPageComponent,
@@ -73,7 +80,11 @@ const routes: Routes = [
       {
         path:'Profile',
         component:ProfileComponent
-      }  
+      },
+      {
+        path: 'SearchChit',
+        component: SearchChitComponent,
+      },  
     ]
   },
   

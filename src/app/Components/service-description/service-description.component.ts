@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as exampleData from '../../Services/ChitTenure.json';
 import { ServiceDescriptionService } from 'src/app/Services/service-description.service.js';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -40,6 +39,7 @@ export class ServiceDescriptionComponent implements OnInit {
   TotalAcceptedInvite: any;
   updateinv:UpdateInvitation={UserId:'',ConnectionId:'',StatusId:0};
   IsBidDoneByUser: any;
+  startdate: any;
  
   constructor(
     private _ServiceDescription: ServiceDescriptionService,
@@ -75,9 +75,10 @@ export class ServiceDescriptionComponent implements OnInit {
         //To Get Current Chit Term Group
         debugger;
         //If Chit is Not Started
-        if (this.chitDetails.status == 1) {
+        if (this.chitDetails.status == 1 || this.chitDetails.status == 2) {
           debugger;
           this.termgroupid = this.chitTerm[0].termgroupid;
+          this.startdate = this.chitTerm[0].startdate;
           this.IsChitStarted = false;
         }
         else {

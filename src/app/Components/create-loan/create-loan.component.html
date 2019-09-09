@@ -1,0 +1,58 @@
+
+<div class="overlay" *ngIf="IsSpinner">
+    <div class="loader"></div>
+  </div>
+<!-- <div style="margin-top: 70px">
+
+    CHIT ID :{{ChitId}}
+    Term Group ID :{{TermGroupId}}
+</div> -->
+<form (ngSubmit)="onSubmitTransaction(loanform)" *ngIf="!IsSpinner">
+    <div class="row justify-content-center" style="margin-top: 70px">
+        <div class="col-md-10">
+            <div class="row" style="background-color: #464159;
+            color: whitesmoke;
+            padding: 5px;">
+                <h4>Total Bid Amount can be Raised is {{loanDetails.Amount}} </h4>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Chit Id is
+                </div>
+                <div class="col-md-8">
+                    {{loanform.ChitId}}
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Term Group ID is
+                </div>
+                <div class="col-md-8">
+                    {{loanform.TermGroupId}}
+                </div>
+            </div>
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    User Id is
+                </div>
+                <div class="col-md-8">
+                    {{loanform.UserId}}
+                </div>
+            </div>
+     
+            <div class="row RowBottom">
+                <div class="col-md-4">
+                    Enter Loan Amount
+                </div>
+                <div class="col-md-8">
+                    <input type="text" [(ngModel)]="loanform.BidAmount" name="BidAmount" class="form-control" />
+                </div>
+            </div>
+
+            <button type="submit" >Pay Amount</button>
+        </div>
+      
+   
+    </div>
+
+</form>

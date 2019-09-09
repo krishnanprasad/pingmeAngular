@@ -15,13 +15,13 @@ export class TransactionService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    return this.http.post("http://localhost:60317/api/Transaction/AddTransaction",
+    return this.http.post("http://edpicker.in/api/Transaction/AddTransaction",
       AddTransaction,
       httpOptions
       );
   }
   getEMIDetails(userid,chitid,termgroupid):Observable<any>
   {
-    return this.http.get("http://localhost:60317/api/Payment/GetEMIPaymentInfo",{params:{"userid":userid,"chitid":chitid,"termgroupid":termgroupid}})
+    return this.http.get("http://edpicker.in/api/Payment/GetEMIPaymentInfo",{params:{"userid":userid,"chitid":chitid,"termgroupid":termgroupid}})
   }
 }
